@@ -1,9 +1,18 @@
 .cal-grid{display: block;
-  height: 430px;
+  height: auto ;/*430px;*/
   background-color: rgb(4, 4, 4);
-  width: 230px;
+  max-width: 223px;
+  width: 100%;
+  margin: 0 auto;
   align-items: center;
   justify-items: center;
+    padding-bottom: 20px;
+
+}
+.cal-text, .total {
+  width: 85%;
+  box-sizing: border-box; /* so padding/border don't push it over 100% */
+  margin: 0 auto;
 }
 .cal-text{
   height: 60px;
@@ -30,17 +39,18 @@
   display: grid;
   row-gap: px;
   grid-template-columns: repeat(2,1fr);
-  width: 215px;
+  width: 90%; /*215px;*/
+  box-sizing: border-box;
   background: black;
   height: 240px;
-  padding-left: 15px;
-  margin-top: 30px;
+  padding-left: 0;
+  margin-top: 30px auto 0;
 }
 .sign-num{
   display: grid;
 }
 .num-box{
- width: 152px;
+ width: 100%; /*152px;*/
  height: 160px; /* or whatever fits your buttons comfortably */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -51,6 +61,12 @@
   display: grid;
   grid-template-columns: repeat(2,1fr);
   gap: 8px;
+}
+@media (max-width: 320px) {
+  button {
+    width: 34px;
+    height: 34px;
+  }
 }
 .cancel-btn{
   padding: 0;
@@ -73,7 +89,6 @@ width: 160px;
 .arith-sign{
   display: grid;
   column-gap: 15px;
-  margin-right: 10px;
   
 }
 button{
