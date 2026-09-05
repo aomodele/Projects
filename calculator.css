@@ -1,0 +1,99 @@
+.cal-grid{display: block;
+  height: 430px;
+  background-color: rgb(4, 4, 4);
+  width: 230px;
+  align-items: center;
+  justify-items: center;
+}
+.cal-text{
+  height: 60px;
+  background: black;
+  border: none;
+  color: white;
+  font-size: 20px;
+  width: 180px;
+  text-align: start;
+  margin-left: 20px;
+  margin-top:20px;
+}
+.total{
+  background: black;
+  color: white;
+  text-align: end;
+  height: 60px;
+ font-size: 20px;
+   width: 180px;
+  border: none;
+  margin-left: 20px;
+}
+.cal-box{
+  display: grid;
+  row-gap: px;
+  grid-template-columns: repeat(2,1fr);
+  width: 215px;
+  background: black;
+  height: 240px;
+  padding-left: 15px;
+  margin-top: 30px;
+}
+.sign-num{
+  display: grid;
+}
+.num-box{
+ width: 152px;
+ height: 160px; /* or whatever fits your buttons comfortably */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+
+}
+.num-arith{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 8px;
+}
+.cancel-btn{
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+.divide-icon{
+  font-size: 30px;
+  padding: 0%;
+}
+.sign-btn{
+width: 160px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: 20px;
+  
+}
+.arith-sign{
+  display: grid;
+  column-gap: 15px;
+  margin-right: 10px;
+  
+}
+button{
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
+  border: none;
+  font-weight: bolder;
+  cursor: pointer;
+   box-shadow: inset 0px 0px 7px rgba(248, 235, 235, 0.33);
+}
+.sign-btn button{
+  background: rgba(230, 225, 225, 0.411);
+  color: white;
+}
+.num-box button{
+  background: rgb(36, 36, 36);
+  color: white;
+}
+.arith-sign button{
+  background: orange;
+  color: white;
+}

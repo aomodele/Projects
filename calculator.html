@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<head>
+  <title>Calculator</title>
+  <link rel="stylesheet" href="calculator.css">
+</head>
+<body>
+  <div class="cal-grid">
+  <div>
+      <input class="cal-text" type="text" id="display" readonly>
+      <input class="total" type="text" id="total" readonly>
+    </div>
+  <div class="cal-box">
+    
+    <div class="sign-num">
+      <div class="sign-btn">
+      <button onclick="deleteLast()" class="cancel-btn">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+    <path d="M8 6h11a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H8l-6-6z"/>
+    <line x1="10" y1="9" x2="17" y2="15"/>
+    <line x1="17" y1="9" x2="10" y2="15"/>
+  </svg>
+</button>
+<button onclick="clearAll()">AC</button>
+<button onclick="percent()">%
+</button>
+    </div>
+
+ <div class="num-box">
+    <!--<button onclick=" calculation += 7; document.getElementById('display').value =calculation" >7</button>
+    <button onclick="press(7)">8</button>
+
+    <button onclick=" calculation += 9;
+    console.log(`${calculation}`)">9</button>
+    <button onclick=" calculation += 4;
+    console.log(`${calculation}`)">4</button>
+    <button onclick=" calculation += 5;
+    console.log(`${calculation}`)">5</button>
+    <button onclick=" calculation += 6;
+    console.log(`${calculation}`)">6</button>
+    <button onclick=" calculation += 1;
+    console.log(`${calculation}`)">1</button>
+    <button onclick=" calculation += 2;
+    console.log(`${calculation}`)">2</button>
+    <button onclick=" calculation += 3;
+    console.log(`${calculation}`)">3</button>
+    <button>&#x00B1;</button>
+    <button onclick=" calculation += 0;
+    console.log(`${calculation}`)">0</button>
+    <button onclick=" calculation +=  '.';
+    console.log(`${calculation}`)">.</button>-->
+
+<button onclick="press(7)">7</button>
+<button onclick="press(8)">8</button>
+<button onclick="press(9)">9</button>
+<button onclick="press(4)">4</button>
+<button onclick="press(5)">5</button>
+<button onclick="press(6)">6</button>
+<button onclick="press(1)">1</button>
+<button onclick="press(2)">2</button>
+<button onclick="press(3)">3</button>
+<button>&#x00B1;</button>
+<button onclick="press(0)">0</button>
+<button onclick="press('.')">.</button>
+ 
+  </div>
+    </div>
+   
+  <div class="arith-sign">
+    <!-- Divide button: appends '/' operator to calculation -->
+<button onclick="press('/')" class="divide-icon">&#247;</button>
+
+<!-- Multiply button: appends '*' operator to calculation -->
+<button onclick="press('*')">X</button>
+
+<!-- Subtract button: appends '-' operator to calculation -->
+<button onclick="press('-')">--</button>
+
+<!-- Add button: appends '+' operator to calculation -->
+<button onclick="press('+')">+</button>
+
+<!-- Equals button: evaluates the full expression and shows the result -->
+<button onclick="calculate()">=</button>
+   <!-- <button onclick=" calculation = '/';
+    console.log(`${calculation}`)" class="divide-icon">&#247;</button>
+    <button onclick=" calculation += '*';
+    console.log(`${calculation}`)" >X</button>
+    <button onclick=" calculation += '-';
+    console.log(`${calculation}`)">-</button>
+    <button onclick=" calculation += '+';
+    console.log(`${calculation}`)">+</button>
+    <button onclick="calculation = eval(calculation); console.log(`${calculation}`)">=</button> -->
+  </div>
+</div>
+</div>
+<!--<script>
+  let calculation = '';
+  console.log(calculation)
+</script>-->
+<script src="calculator.js"></script>
+
+</body>
+</html>
