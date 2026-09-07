@@ -1,5 +1,5 @@
 .cal-grid{display: block;
-  height: auto ;/*430px;*/
+  height: 100% ;/*430px;*/
   background-color: rgb(4, 4, 4);
   max-width: 223px;
   width: 100%;
@@ -11,10 +11,25 @@
 }
 .cal-text, .total {
   width: 85%;
-  box-sizing: border-box; /* so padding/border don't push it over 100% */
+  box-sizing: border-box;
   margin: 0 auto;
+  height: 60px;
+  background: black;
+  border: none;
+  color: white;
+  font-size: 20px;
 }
-.cal-text{
+
+.cal-text {
+  text-align: start;
+  margin-top: 20px;
+}
+
+.total {
+  text-align: end;
+}
+
+/*.cal-text{
   height: 60px;
   background: black;
   border: none;
@@ -34,7 +49,7 @@
    width: 180px;
   border: none;
   margin-left: 20px;
-}
+}*/
 .cal-box{
   display: grid;
   row-gap: px;
