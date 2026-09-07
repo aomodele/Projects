@@ -47,6 +47,7 @@ body{
   border: none;
   box-sizing: border-box;
   font-size: 1rem;
+  color: white;
 }
 
 .reg-content button:hover{
