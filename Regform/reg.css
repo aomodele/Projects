@@ -3,8 +3,7 @@ p{
   color: aliceblue;
 }
 body{
-  min-height: 100vh;
-  margin: 0;
+  min-height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,19 +13,34 @@ body{
 .reg-box{
   width: min(400px, 90vw);   /* shrinks on small screens, caps at 400px */
   aspect-ratio: 1 / 1;       /* keeps it square instead of fixed 400px height */
-  background-image: url('Foodie Puppies.jpg');
+  background-image: url('icons/Foodie\ Puppies.jpg');
   background-size: cover;
   background-position: center;
   border-radius: 7px;
   border: 1px solid rgb(9, 8, 8);
   position: relative;
   overflow: hidden;
+  margin: 0;
 }
-.reg-box::before{
+.sign-box{
+  display: none;
+  width: min(450px, 90vw);   /* shrinks on small screens, caps at 400px */
+  aspect-ratio: 1 / 1;       /* keeps it square instead of fixed 400px height */
+  background-image: url('icons/Duck1.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 7px;
+  border: 1px solid rgb(9, 8, 8);
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+}
+.reg-box::before,
+.sign-box::before{
   content: "";
   position: absolute;
   inset: 0;
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(2px);
   background: rgba(255,255,255,0.01);
   z-index: 0;
 }
@@ -39,8 +53,14 @@ body{
   flex-direction: column;
   align-items: center;
 }
+.sign-content{
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .reg-content input{
-  width: 100%;
   padding: 10px;
   margin: 8px 0;
   border-radius: 5px;
@@ -49,9 +69,18 @@ body{
   font-size: 1rem;
   color: white;
 }
-
-.reg-content button:hover{
-  background-color: #ce88e0;
+.sign-content input{
+  margin: 8px 0;
+  margin-top: 0px;
+  border-radius: 5px;
+  border: none;
+  box-sizing: border-box;
+  font-size: 1rem;
+  color: white;
+}
+.reg-content button:hover, 
+.sign-content button:hover{
+  background-color: #f0bf43;
   color: rgb(255, 255, 255);
   border: 1px solid;
 }
@@ -62,23 +91,37 @@ body{
 }*/
 
 @media (max-width: 480px){
-  .reg-box{
+  .reg-box, 
+  .sign-box{
     width: 95vw;
   }
   .reg-content{
     padding: 12px;
   }
+  .sign-content{
+    padding: 12px;
+    padding-top: 20px;
+  }
   .reg-content input,
+  .sign-content input, 
+  .sign-content-button,
   .reg-content button{
     font-size: 0.9rem;
-    padding: 8px;
   }
 }
 .log-txt{
   margin-top: 2px;
   margin-bottom: 2px;
 }
+.sign-txt{
+  margin-bottom: -2px;
+
+}
 .userinfo{
+  display: grid;
+  width: 250px;
+}
+.sign-userinfo{
   display: grid;
   width: 250px;
 }
@@ -89,33 +132,62 @@ body{
   padding-left: 20px;
   background: none;
 }
-.userinfo input::placeholder{
+.sign-userinfo input{
+  height: 30px;
+  border-radius: 15px;
+  border: 1px solid rgb(237, 220, 245);
+  padding-left: 20px;
+  background: none;
+}
+.userinfo input::placeholder,
+.sign-userinfo input::placeholder{
   color: white;
+  font-size: 12px;
+}
+.password::placeholder{
+  padding-left: 5px;
 }
 .password{
-  margin-top: 20px;
+  position: relative;
+  width: 100%;
 }
+
+.password input{
+  width: 100%;
+  padding-right: 10px; /* space for the eye icon */
+}
+
 .rem-box{
   display: flex;
+ padding-left: 65px;
+ gap: 3px;
+}
+.checkbox{
+  border: none;
+  border-radius: 20px;
 }
 .user-guide{
   display: flex;
-  width: 250px;
 }
 .rem-txt{
   font-size: 10px;
+  text-wrap: none;
+  width: 80px;
 }
 .forgotbtn{
   font-size: 10px;
   height: 20px;
+  width: 100px;
   margin-top: 6px;
   background: none;
   border: none;
   color: aliceblue;
   margin-left: 63px;
  cursor: pointer;
+ margin-right: 55px;
 }
-.login-btn{
+.login-btn,
+.signin-btn{
   width: 250px;
   height: 30px;
   border-radius: 15px;
@@ -123,14 +195,49 @@ body{
   font-weight: bold;
   color:rgb(37, 1, 46);
   border-color: rgb(37, 1, 46);
+  cursor: pointer;
 }
-.acct-req-txt{
+.signin-btn{
+  background-color: orange;
+}
+
+.acct-reg-info,
+.acct-sign-info{
+  display: inline;
+  justify-content: center;
+}
+.acct-req-txt, 
+.acct-sign-txt{
   font-size: 12px;
 }
-.reg-btn{
-background: none;
+.reg-btn,
+.sign-btn{
+background-color: orange;
 border: none;
 color: rgb(37, 1, 46);
 font-size: 16px;
  cursor: pointer;
+}
+.s-g-button{
+  display: grid;
+  margin-top: 15px;
+}
+.sign-login-box{
+  display: flex;
+  width: 250px;
+  gap: 10px;
+}
+.google-btn{
+display: flex;
+justify-content: center;
+align-items:center;
+background-color: rgb(228, 223, 223);
+border: none;
+border-radius: 20px;
+height: 27px;
+margin-top: 5px;
+}
+
+.google-img{
+width: 20px;
 }

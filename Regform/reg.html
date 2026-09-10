@@ -15,7 +15,7 @@
     </div>
     <div class="user-guide"> 
       <div class="rem-box">
-        <input  type="checkbox">
+        <input class="checkbox" type="checkbox">
         <p class="rem-txt">
         Remember me
       </p>
@@ -24,14 +24,51 @@
         Forgot Password?
       </button>
     </div>
-    <button class="login-btn">
+    <button class="login-btn" id="log-btn">
       Login
     </button>
     <div class="acct-reg-info">
       <p class="acct-req-txt">
-        Don't have an account? <button class="reg-btn">Register</button>
+        Don't have an account for your pet? <button class="reg-btn" id="reg-btn">Register</button>
       </p>
    </div> 
+    <button class="google-btn">
+     <img class="google-img" src="icons/google-icon-nobg.png" alt="google-icon"> Use Google
+    </button>
     </div>
   </div>
+ 
+   <div class="sign-box">
+   <div class="sign-content">
+       
+          <h1> <p class="sign-txt">Sign-in</p></h1>
+        
+    <div class="sign-userinfo">
+      <input type="text" placeholder=" Enter pet name">
+      <input type="text" placeholder=" Enter pet owner name">
+      <input type="text" placeholder=" Enter pet owner email">
+     <div class="password">
+      <input type="password" id="signup-password" placeholder="Enter Password">
+      
+      <input type="password" id="confirm-password" placeholder="Confirm Password">
+    </div>
+      
+    </div>
+   <div class="s-g-button">
+      <div class="sign-login-box">
+        <button class="signin-btn" id="sign-btn">
+      Sign in
+    </button>
+      <button class="login-btn" id="login-btn">
+      Login
+    </button>
+      </div>
+    <button class="google-btn">
+     <img class="google-img" src="icons/google-icon-nobg.png" alt="google-icon"> Use Google
+    </button>
+   </div>
+    </div>
+  </div>
+  <script src="reg.js"></script>
+  
 </body>
