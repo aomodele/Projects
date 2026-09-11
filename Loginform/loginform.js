@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // For now, just confirm the click is working, replace later with real sign-in logic
       console.log(`${provider} button clicked`);
-      alert(`${provider} Thank you for testing the sign in buttons! (This is just a test, no real login yet.) #lizdev`);
+      alert(`Thank you for testing the ${provider} button! (This is just a test, no real login yet.) #lizdev`);
     });
 
   });
