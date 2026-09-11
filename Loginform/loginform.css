@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;1,700&family=Onest:wght@100..900&family=Roboto:ital,wght@0,500;1,500&display=swap');
+
+/*colors*/
+:root{
+  --color-background:#3944df;
+  --color-text: #333;
+  --color-border: #0e0707;
+  --color-placeholder: #777;
+  --color-primary: #007bff;
+  --color-primary-hover: #0056b3;
+  --color-link: #1a73e8;
+  --color-divider: #ddd;
+  --color-social-hover: #f0f0f0;
+  --color-floating-label: #5f6368;
+  --color-white: #fff;
+}
+.btn-icon{
+  width: 30px;
+  height: 30px;
+  background-color: none;
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "DM sans", sans-serif;
+}
+body{
+  background-color:rgb(13, 13, 143); /*var(--color-background);*/
+  color: var(--color-text);
+}
+.f-box{
+  background-color: #1a73e8;
+}
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+.form-container {
+  position: relative;       
+  background-color: var(--color-white); 
+  padding: 50px 40px;  
+  width: 100%;   
+  max-width: 450px;   
+  border-radius: 8px;       
+  border: 1px solid var(--color-border);  
+  overflow: hidden;          /* Clips any content that spills outside the container's edges */
+}
+.form-header{
+  position: relative;
+  z-index: 1;
+}
+.form-header p{
+  color: var(--color-placeholder);
+}
+.form-header h1{
+  font-size: 32px;
+}
+.form-box{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 50px;
+}
+.input-group{
+  position: relative;
+  display: flex;
+}
+.input-field{
+  height: 48px;
+  padding-inline:14px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  width: 100%;
+  font-size: 18px;
+}
+#password{
+  padding-right:30px;
+}
+.floating-label{
+  position: absolute;
+  top: 50%;
+  left: 8px;
+  transform: translateY(-50%); /* Fine-tunes vertical centering (offsets by half its own height) */
+  color: var(--color-placeholder);
+  background-color: var(--color-white);
+  padding-inline:6px;
+  transition: all, 0.5s ease;
+  pointer-events:none; /* Lets clicks pass through the label to the input underneath */
+}
+.input-field:focus ~ .floating-label,.input-field:not(:placeholder-shown) ~ .floating-label{
+   /* Triggers when the input is focused, OR when it has content (placeholder-shown is false once text exists) */
+  top:0;
+  left: 8px;
+  transform: translateY(-50%);
+  font-size: 12px;
+  color: var(--color-primary);
+}
+ /* Note: ::placeholder is a pseudo-element, not valid to use with :not() like this — this rule won't work as intended.
+     If the goal was "not focused and empty", the earlier :not(:placeholder-shown) rule already covers the filled case. */
+.input-field:not(:focus):not(::placeholder) ~ .floating-label{
+  color:var(--color-floating-label);
+}
+
+.checkbox-group{
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 14px;
+}
+.remember-me{
+  display: flex;
+  align-items: center;
+  gap:5px;
+}
+.signinbtn{
+  font-size: 20px;
+  background: none;
+  border: none;
+  color: darkblue;
+}
+.signinbtn:hover{
+  border-color:  1px solid #1a73e8;
+  color: rgba(255, 0, 0, 0.701);
+}
+.form-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: none;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  padding-inline:8px;
+  font-size: 20px;
+}
+.form-btn-submit{
+  background-color: var(--color-primary);
+  font-size: 16px;
+  font-weight:600;
+  margin-top: 20px;
+  transition: color-background .3 ease;
+}
+.form-btn-submit:hover{
+  background-color:var(--color-primary-hover);
+}
+.form-bottom{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+.form-divider{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 14px;
+  color:var(--color-placeholder);
+  margin-top: 20px;
+}
+.form-divider::before,
+.form-divider::after{
+content: "";
+flex:1;
+height: 1px;
+background-color:var(--color-divider);
+}
+.form-social{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-bottom: 20px;
+}
+.form-btn--social{
+  border: 1px solid var(--color-divider);
+  transition: .3s ease;
+}
+.form-btn-social:hover{
+  background-color: var(--color-social-hover);
+}
+.btn-icon{
+  width: 30px;
+}
+.form-link{
+  color: var(--color-link);
+  margin-left: 110px;
+}
+.form-link:hover{
+text-decoration: none;
+}
+.form-blob{
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  top: 0;
+  right: 0;
+  z-index: 0;
+}
+.blob-image{
+  position: absolute;
+  rotate: 205deg;
+  pointer-events: none;
+  opacity:0 ;
+  transform: scale(0.5) translateY(100px);
+}
+.blob-image--1{
+  top: -170px;
+  right: -250px;
+  animation: welcomeIn 2.2s ease-out 0.3s forwards;
+  --final-opacity: 1;
+}
+.blob-image--2{
+  top: -165px;
+  right: -220px;
+  animation: welcomeIn 1.2s ease-out 0.6s forwards;
+  --final-opacity: 1;
+}
+.blob-image--3{
+  top: -160px;
+  right: -200px;
+  animation: welcomeIn 1.2s ease-out 0.9s forwards;
+  --final-opacity:1;
+}
+@keyframes welcomeIn {
+  0%{
+    opacity: 1;
+    transform: scale(0.5) translateX(100px) rotate(180deg);
+  }
+  60%{
+    opacity: calc(var(--final-opacity)* 1);
+    transform: scale() translateX(100px) rotate(180deg);
+  }
+}

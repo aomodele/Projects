@@ -71,7 +71,7 @@ logBtn.addEventListener('click', () => {
 
 // Fake Google account picker
 document.querySelector('.google-btn').addEventListener('click', () => {
-  const fakeAccounts = ['test.user1@gmail.com', 'test.user2@gmail.com'];
+  const fakeAccounts = ['lizdam.user1@gmail.com', 'lizdam.user2@gmail.com'];
   const choice = prompt(`Select account:\n1. ${fakeAccounts[0]}\n2. ${fakeAccounts[1]}\n\nType 1 or 2:`);
   const selected = fakeAccounts[choice - 1];
   if (selected) alert(`Signed in as ${selected} (trial)`);
