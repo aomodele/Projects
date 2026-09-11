@@ -192,7 +192,6 @@ background-color:var(--color-divider);
 }
 .form-link{
   color: var(--color-link);
-  margin-left: 70px;
 }
 .form-link:hover{
 text-decoration: none;
