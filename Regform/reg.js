@@ -3,9 +3,9 @@ const regBox = document.querySelector('.reg-box');
 const signBox = document.querySelector('.sign-box');
 
 const registerBtn = document.getElementById('reg-btn');      // reg-box -> sign-box
-const backToLoginBtn = document.getElementById('login-btn'); // sign-box -> reg-box (nav)
-const logBtn = document.getElementById('log-btn');           // actual Login submit
-const signBtn = document.getElementById('sign-btn');         // actual Register submit
+const backToLoginBtn = document.getElementById('login-btn');    //sign-box -> reg-box (nav)
+const logBtn = document.getElementById('log-btn');      // actual Login submit
+const signBtn = document.getElementById('sign-btn');     // actual Register submit
 
 const rememberBox = document.querySelector('.checkbox');
 const usernameInput = document.querySelector('.userinfo input:first-child');

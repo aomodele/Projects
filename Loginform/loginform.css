@@ -40,6 +40,14 @@ body{
   padding: 20px;
   background-color: #f0f0f0;
 }
+.s-container{
+  display: none;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 20px;
+  background-color: #f0f0f0;
+}
 .form-container {
   position: relative;       
   background-color: var(--color-white); 
@@ -117,13 +125,13 @@ body{
   align-items: center;
   gap:5px;
 }
-.signinbtn{
+.signinbtn,.signupbtn{
   font-size: 20px;
   background: none;
   border: none;
   color: darkblue;
 }
-.signinbtn:hover{
+.signinbtn:hover,.signupbtn:hover{
   border-color:  1px solid #1a73e8;
   color: rgba(255, 0, 0, 0.701);
 }
@@ -190,7 +198,7 @@ background-color:var(--color-divider);
 .btn-icon{
   width: 30px;
 }
-.form-link{
+.form-link,.s-form-link{
   color: var(--color-link);
 }
 .form-link:hover{
