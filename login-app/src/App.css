@@ -13,6 +13,7 @@
   --color-social-hover: #f0f0f0;
   --color-floating-label: #5f6368;
   --color-white: #fff;
+  color-scheme: light;
 }
 .btn-icon{
   width: 30px;
@@ -41,7 +42,7 @@ body{
   background-color: #f0f0f0;
 }
 .s-container{
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
@@ -61,12 +62,17 @@ body{
 .form-header{
   position: relative;
   z-index: 1;
+
 }
 .form-header p{
   color: var(--color-placeholder);
+   
+  color: var(--color-text);                /* force dark text */
 }
 .form-header h1{
   font-size: 32px;
+  
+  color: var(--color-text);                /* force dark text */
 }
 .form-box{
   display: flex;
@@ -85,6 +91,8 @@ body{
   border-radius: 6px;
   width: 100%;
   font-size: 18px;
+ 
+  color: var(--color-text);                /* force dark text */
 }
 #password{
   padding-right:30px;
@@ -110,9 +118,9 @@ body{
 }
  /* Note: ::placeholder is a pseudo-element, not valid to use with :not() like this — this rule won't work as intended.
      If the goal was "not focused and empty", the earlier :not(:placeholder-shown) rule already covers the filled case. */
-.input-field:not(:focus):not(::placeholder) ~ .floating-label{
+/*.input-field:not(:focus):not(::placeholder) ~ .floating-label{
   color:var(--color-floating-label);
-}
+}*/
 
 .checkbox-group{
   display: flex;
@@ -187,6 +195,10 @@ background-color:var(--color-divider);
   align-items: center;
   gap: 40px;
   margin-bottom: 20px;
+}
+.form-social button:hover{
+ transform: scale(1.2);
+  transition: 0.5s;
 }
 .form-btn--social{
   border: 1px solid var(--color-divider);
