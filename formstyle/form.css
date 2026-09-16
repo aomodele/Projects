@@ -1,0 +1,135 @@
+:root {
+  --color-primary: #046276;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  width: 660px;
+  height: 440px;
+  border-radius: 32px;
+  background: #ffffff;
+}
+
+.card-bg {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 860px;
+  height: 440px;
+  rotate: -45deg;
+}
+.card-bg-1 {
+  background: var(--color-primary);
+   translate: -230px 0;
+  transition: 0.4s ease;
+}
+
+.card-bg-2 {
+  background: #ffffff;
+   translate: 230px 0;
+  transition: 0.4s ease;
+}
+.logo {
+  position: absolute;
+  top: -40px;
+  z-index: 2;
+  height: 300px;
+  transition: 0.3s;
+  opacity: 0;
+}
+
+.logo-1 {
+  translate: -180px 0;
+  left: 20px;
+}
+
+.logo-2 {
+  translate: 180px 0;
+  right: 20px;
+}
+.form {
+  position: absolute;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 50%;
+  display: grid;
+  place-items: center;
+  
+}
+/*
+.form {
+
+  opacity: 0;
+  pointer-events: none;
+}
+
+.form.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+*/
+
+.form h2 {
+  text-align: center;
+  font-weight: 500;
+}
+.form.signup {
+  left: 50%;
+}
+.form-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.form form {
+  /*display: grid;
+  gap: 12px;*/
+  opacity: 1;
+  transition: 0.3s;
+}
+.form a {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #a7a7ad;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+}
+
+.form p {
+  font-size: 14px;
+  text-align: center;
+  margin: 8px 0;
+  color: #a7a7ad;
+}
+
+.form a em {
+  display: block;
+  font-style: normal;
+  font-size: 15px;
+  color: var(--color-primary);
+}
+.form input {
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  margin-bottom: 8px;
+}
+
+.form button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: var(--color-primary);
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+}
