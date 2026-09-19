@@ -1,17 +1,214 @@
-@media(min-width: 320px) and (max-width: 480px){} /*Mobile view*/
-@media(min-width: 768px) and (max-width: 1024px){} /*Tablet view*/
-@media(min-width: 768px) and (max-width: 1024px) and (orientation: landscape){} /*Tablet landscape view*/
-@media(min-width: 1025px) and (max-width: 1280px){} /*Destop/laptop view*/
-@media(min-width: 1281px){} /*Destop view*/
-h1{
+body{
+  font-family: Roboto, Arial;
+  position: relative;
+}
+/* h1{
   font-weight: 600;
   color: black;
-  font-size: clamp(24px, 5vw, 64px);
+  font-size: clamp(24px, 5vw, 64px); }*/
   /*clamp 3 minimum values, 1st is the minimum preferred font size, 2nd the preferred value, which scales betwenn the mini & max, 5vw means 5% viewport width, 3rd is the largest font value*/
-}
-body{
 
+
+header h1{
+font-weight: 600;
+  color: rgb(198, 151, 11);
+  font-size: clamp(18px, 5vw, 64px);
 }
+
+header p{
+  font-size: clamp(12px, 3vw, 30px)
+}
+@media (min-width: 320px) and (max-width: 480px){
+ header{
+  background-color: rgba(221, 146, 34, 0.995);
+}
+.piechatimg{
+  position: absolute;
+  top: 40px;
+  left: 200px;
+  width: 150px;
+  transform: scale(1.5);
+  transition: 3s;
+}
+header h1{
+  color: white;
+}
+.welcome-scr{
+display: grid;
+grid-template-rows:  1fr 500px 1fr;;
+height: 100vh;
+}
+main{
+background-image: url(thumbnails/todostayorgbg.png);
+ background-size: 47rem;  background-position: 65% center;
+}
+.note{
+  position: absolute;
+  z-index: 1;
+  width: 120px;
+  left: 120px;
+  top: 120px;
+  font-style: italic;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+  color: rgba(221, 146, 34, 0.995);
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 5px;
+}
+} /*Mobile view*/
+
+@media(min-width: 600px) and (max-width: 1024px){
+ header{
+  background-color: rgba(221, 146, 34, 0.995);
+}
+header h1{
+  color: white;
+}
+.piechatimg{
+  position: absolute;
+  top: 70px;
+  left: 420px;
+  width: 300px;
+  transform: scale(1.5);
+  transition: 3s;
+}
+.welcome-scr{
+display: grid;
+grid-template-rows:  1fr 500px 1fr;;
+height: 100vh;}
+main{
+background-image: url(thumbnails/todostayorgbg.png);
+ background-size: cover;
+  background-position: center;
+}
+.note{
+  position: absolute;
+  z-index: 1;
+  transform: scale(1.2);
+  transition: 0.3s;
+  width: 280px;
+  margin-left: 50px;
+  left: 80px;
+  top: 200px;
+  font-size: 20px;
+  font-style: italic;
+  background-color: rgb(255, 255, 255);
+  color: rgba(221, 146, 34, 0.995);
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 5px;
+}
+} /*Tablet view*/
+
+@media(min-width: 768px) and (max-width: 1281px) and (orientation: landscape){
+  header{
+  background-color: rgba(228, 157, 51, 0.466);
+}
+.piechatimg{
+  position: absolute;
+  top: 50px;
+  left: 160px;
+  width: 200px;
+  transform: scale(1.5);
+  transition: 3s;
+}
+.welcome-scr{
+display: grid;
+grid-template-rows:  1fr 500px 1fr;;
+height: 98vh;}
+main{
+background-image: url(thumbnails/todostayorgbg.png);
+ background-size: cover;
+  background-position: center;
+}
+.note{
+  position: absolute;
+  z-index: 1;
+  transform: scale(1.2);
+  transition: 0.3s;
+  width: 280px;
+  margin-left: 50px;
+  right: 100px;
+  top: 200px;
+  background-color: rgb(255, 255, 255);
+  color: rgba(221, 146, 34, 0.995);
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 5px;
+}
+} /*Tablet landscape view*/
+
+@media(min-width: 1281px){
+.welcome-scr{
+display: grid;
+grid-template-rows: 1fr 650px 1fr;
+height: 100%;
+background-image: url(thumbnails/todostayorgbg.png);
+ background-size:cover;
+  background-position: center;
+}
+header{
+  background-color: rgba(249, 249, 249, 0.628);
+}
+.piechatimg{
+  position: absolute;
+  top: 30px;
+  left: 1000px;
+  width: 310px;
+  transform: scale(1.5);
+  transition: 3s;
+}
+header p{
+  color: rgba(0, 0, 0, 0.922);
+  display: inline-block;
+  margin-bottom: 0;
+}
+.note{
+  position: absolute;
+  z-index: 1;
+  transform: scale(1.2);
+  transition: 0.3s;
+  width: 210px;
+  margin-left: 50px;
+  right: 610px;
+  top: 200px;
+  background-color: rgba(221, 146, 34, 0.995);
+  color: rgba(247, 247, 247, 0.995);
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 8px;
+  font-style: italic;
+}
+} /*Destop view*/
+
+footer {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ background: rgba(255, 228, 196, 0.32);
+}
+footer button{
+  height: clamp(30px, 5vw, 50px);
+  width: clamp(110px, 8vw, 250px);
+  background-color: rgb(225, 152, 43);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
+}
+.welcome-txt, .date-text{
+  margin-left: 20px;
+}
+
+/* main{
+background-image: url(thumbnails/todostayorgbg.png);
+ background-size: cover;
+  background-position: center;
+  height: 500px;
+} */
+
 
 p{
 
