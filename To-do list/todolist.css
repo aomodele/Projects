@@ -18,14 +18,15 @@ font-weight: 600;
 header p{
   font-size: clamp(12px, 3vw, 30px)
 }
+/*Mobile view*/
 @media (min-width: 320px) and (max-width: 480px){
  header{
   background-color: rgba(221, 146, 34, 0.995);
 }
 .piechatimg{
   position: absolute;
-  top: 40px;
-  left: 200px;
+  top: 4%;
+  right: 5%;
   width: 150px;
   transform: scale(1.5);
   transition: 3s;
@@ -46,8 +47,8 @@ background-image: url(thumbnails/todostayorgbg.png);
   position: absolute;
   z-index: 1;
   width: 120px;
-  left: 120px;
-  top: 120px;
+  left: 10%;
+  top: 12%;
   font-style: italic;
   text-align: center;
   background-color: rgb(255, 255, 255);
@@ -56,20 +57,24 @@ background-image: url(thumbnails/todostayorgbg.png);
   border-bottom-right-radius: 20px;
   padding: 5px;
 }
-} /*Mobile view*/
-
+} 
+/*Tablet view*/
 @media(min-width: 600px) and (max-width: 1024px){
  header{
+  display: flex;
   background-color: rgba(221, 146, 34, 0.995);
+   justify-content: space-between;
+  align-items: center;
+  padding-right: 220px; /* reserves space for the image */
 }
 header h1{
   color: white;
 }
 .piechatimg{
   position: absolute;
-  top: 70px;
-  left: 420px;
-  width: 300px;
+  top: 6%;
+  right: 8%;
+  width: 200px;
   transform: scale(1.5);
   transition: 3s;
 }
@@ -89,8 +94,8 @@ background-image: url(thumbnails/todostayorgbg.png);
   transition: 0.3s;
   width: 280px;
   margin-left: 50px;
-  left: 80px;
-  top: 200px;
+   left: 8%;
+  top: 20%;
   font-size: 20px;
   font-style: italic;
   background-color: rgb(255, 255, 255);
@@ -99,16 +104,16 @@ background-image: url(thumbnails/todostayorgbg.png);
   border-bottom-right-radius: 20px;
   padding: 5px;
 }
-} /*Tablet view*/
-
+} 
+ /*Tablet landscape view*/
 @media(min-width: 768px) and (max-width: 1281px) and (orientation: landscape){
   header{
   background-color: rgba(228, 157, 51, 0.466);
 }
 .piechatimg{
   position: absolute;
-  top: 50px;
-  left: 160px;
+  top: 5%;
+  right: 10%;
   width: 200px;
   transform: scale(1.5);
   transition: 3s;
@@ -129,16 +134,16 @@ background-image: url(thumbnails/todostayorgbg.png);
   transition: 0.3s;
   width: 280px;
   margin-left: 50px;
-  right: 100px;
-  top: 200px;
+  right: 8%;
+  top: 20%;
   background-color: rgb(255, 255, 255);
   color: rgba(221, 146, 34, 0.995);
   border-top-left-radius: 20px;
   border-bottom-right-radius: 20px;
   padding: 5px;
 }
-} /*Tablet landscape view*/
-
+}
+/*Destop view*/
 @media(min-width: 1281px){
 .welcome-scr{
 display: grid;
@@ -153,9 +158,9 @@ header{
 }
 .piechatimg{
   position: absolute;
-  top: 30px;
-  left: 1000px;
-  width: 310px;
+  top: 3%;
+  right: 5%;
+  width: 270px;
   transform: scale(1.5);
   transition: 3s;
 }
@@ -171,8 +176,8 @@ header p{
   transition: 0.3s;
   width: 210px;
   margin-left: 50px;
-  right: 610px;
-  top: 200px;
+  right: 40%;
+  top: 18%;
   background-color: rgba(221, 146, 34, 0.995);
   color: rgba(247, 247, 247, 0.995);
   border-top-left-radius: 20px;
@@ -180,7 +185,7 @@ header p{
   padding: 8px;
   font-style: italic;
 }
-} /*Destop view*/
+} 
 
 footer {
  display: flex;
