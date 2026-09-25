@@ -14,12 +14,12 @@
     <link rel="stylesheet" href="todolist.css">
   </head>
   <body>
-    <div class="todolist-page">
-      <div class="welcome-scr">
+    <div class="todolist-view">
+      <section class="welcome-scr" id="welcome-screen">
         <header class="greetings">
           <div>
             <p class="date-text"></p>
-          <h1 class="welcome-txt"> Welcome </h1>
+          <h1 class="welcome-txt"> in js.</h1>
           </div>
 
           <img src="thumbnails/todopiechatbg.png" alt="piechat" class="piechatimg">
@@ -27,14 +27,70 @@
         <main>
           <p class="note">
           Somewhere to keep your days 👌, no account needed, nothing to sync, just what you type in. </p>
-          
         </main>
         <footer>
-             <button type="button">
+             <button type="button" >
             Continue...
           </button>
         </footer>
-         </div>
+      </section>
+      <div class="organize">
+        <section class="organize-scr" id="organize-scr">
+          <header class="org-header">
+            
+        <div class="org-box">
+            
+              <p class="ptitle">
+              ORGANIZE
+            </p>
+            <p class="ctitle">
+              Your Lists
+            </p>
+      </div> 
+           <div>
+            <img src="thumbnails/todopiechatbg.png" alt="piechatpic" class="org-bg">
+             <div>
+            <div class="greetings" style="position: absolute;
+            top: 2%;
+            left: 70%;">
+               <p class="date-text"></p>
+  <h1 class="welcome-txt"></h1>
+            </div>
+           </div>
+          </header>
+    <div class="home">
+      <button>
+      <img src="Icons/home-icon.svg" alt="home-icon" class="home-icon"> </button> <p class="task-txt">All Tasks</p> <p class="task-total">12</p>
+    </div>
+  <main class="m-org">
+   
+    <div class="work-box">
+      <img src="Icons/waffle-icon.svg" alt="waffle-icon"> 
+      <p>
+        Work
+      </p>
+    </div>
+    <div class="personal-box">
+      <img src="Icons/heartshape.png" alt="heartshape-icon"> 
+      <p>
+        Personal
+      </p>
+    </div>
+    <div class="errands-box">
+      <img src="Icons/cart-icon.png" alt="cart-icon"> 
+      <p>
+        Errands
+      </p>
+    </div>
+    <div class="health-box">
+      <img src="Icons/healthicon.png" alt="healthicon"> 
+      <p>
+        Health
+      </p>
+    </div>
+  </main>
+        </section>
+      </div>
     </div>
     <script src="todolist.js"></script>
     

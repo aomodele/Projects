@@ -1,0 +1,263 @@
+body{
+  font-family: Roboto, Arial;
+  position: relative;
+}
+/* h1{
+  font-weight: 600;
+  color: black;
+  font-size: clamp(24px, 5vw, 64px); }*/
+  /*clamp 3 minimum values, 1st is the minimum preferred font size, 2nd the preferred value, which scales betwenn the mini & max, 5vw means 5% viewport width, 3rd is the largest font value*/
+
+
+header h1{
+font-weight: 600;
+  color: rgb(198, 151, 11);
+  font-size: clamp(18px, 5vw, 64px);
+}
+
+header p{
+  font-size: clamp(12px, 3vw, 30px)
+}
+/*Mobile view*/
+@media (min-width: 320px) and (max-width: 480px){
+ header{
+  background-color: rgba(221, 146, 34, 0.995);
+}
+.piechatimg{
+  position: absolute;
+  top: 4%;
+  right: 5%;
+  width: 150px;
+  transform: scale(1.5);
+  transition: 3s;
+}
+header h1{
+  color: white;
+}
+.welcome-scr{
+display: grid;
+grid-template-rows:  1fr 500px 1fr;;
+height: 100vh;
+}
+main{
+background-image: url(thumbnails/todostayorgbg.png);
+ background-size: 47rem;  background-position: 65% center;
+}
+.note{
+  position: absolute;
+  z-index: 1;
+  width: 120px;
+  left: 10%;
+  top: 12%;
+  font-style: italic;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+  color: rgba(221, 146, 34, 0.995);
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 5px;
+}
+} 
+/*Tablet view*/
+@media(min-width: 600px) and (max-width: 1024px){
+ header{
+  display: flex;
+  background-color: rgba(221, 146, 34, 0.995);
+   justify-content: space-between;
+  align-items: center;
+  padding-right: 220px; /* reserves space for the image */
+}
+header h1{
+  color: white;
+}
+.piechatimg{
+  position: absolute;
+  top: 6%;
+  right: 8%;
+  width: 200px;
+  transform: scale(1.5);
+  transition: 3s;
+}
+.welcome-scr{
+display: grid;
+grid-template-rows:  1fr 500px 1fr;;
+height: 100vh;}
+main{
+background-image: url(thumbnails/todostayorgbg.png);
+ background-size: cover;
+  background-position: center;
+}
+.note{
+  position: absolute;
+  z-index: 1;
+  transform: scale(1.2);
+  transition: 0.3s;
+  width: 280px;
+  margin-left: 50px;
+   left: 8%;
+  top: 20%;
+  font-size: 20px;
+  font-style: italic;
+  background-color: rgb(255, 255, 255);
+  color: rgba(221, 146, 34, 0.995);
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 5px;
+}
+} 
+ /*Tablet landscape view*/
+@media(min-width: 768px) and (max-width: 1281px) and (orientation: landscape){
+  header {
+  background-color: rgba(228, 157, 51, 0.466);
+}
+.piechatimg{
+  position: absolute;
+  top: 5%;
+  right: 10%;
+  width: 200px;
+  transform: scale(1.5);
+  transition: 3s;
+}
+.welcome-scr{
+display: grid;
+grid-template-rows:  1fr 500px 1fr;;
+height: 98vh;}
+main{
+background-image: url(thumbnails/todostayorgbg.png);
+ background-size: cover;
+  background-position: center;
+}
+.note{
+  position: absolute;
+  z-index: 1;
+  transform: scale(1.2);
+  transition: 0.3s;
+  width: 280px;
+  margin-left: 50px;
+  right: 8%;
+  top: 20%;
+  background-color: rgb(255, 255, 255);
+  color: rgba(221, 146, 34, 0.995);
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 5px;
+}
+}
+/*Destop view*/
+@media(min-width: 1281px){
+.welcome-scr{
+display: grid;
+grid-template-rows: 1fr 650px 1fr;
+height: 100%;
+background-image: url(thumbnails/todostayorgbg.png);
+ background-size:cover;
+  background-position: center;
+}
+header greetings{
+  background-color: rgba(249, 249, 249, 0.628);
+}
+.piechatimg{
+  position: absolute;
+  top: 3%;
+  right: 5%;
+  width: 270px;
+  transform: scale(1.5);
+  transition: 3s;
+}
+header p{
+  color: rgba(0, 0, 0, 0.922);
+  display: inline-block;
+  margin-bottom: 0;
+}
+.note{
+  position: absolute;
+  z-index: 1;
+  transform: scale(1.2);
+  transition: 0.3s;
+  width: 210px;
+  margin-left: 50px;
+  right: 40%;
+  top: 18%;
+  background-color: rgba(221, 146, 34, 0.995);
+  color: rgba(247, 247, 247, 0.995);
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  padding: 8px;
+  font-style: italic;
+}
+
+} 
+
+footer {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ background: rgba(255, 228, 196, 0.32);
+}
+footer button{
+  height: clamp(30px, 5vw, 50px);
+  width: clamp(110px, 8vw, 250px);
+  background-color: rgb(225, 152, 43);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
+}
+.welcome-txt, .date-text{
+  margin-left: 20px;
+}
+
+/* main{
+background-image: url(thumbnails/todostayorgbg.png);
+ background-size: cover;
+  background-position: center;
+  height: 500px;
+} */
+
+.organize{
+display: none;
+}
+.home-icon{
+width: 25px;
+height: 25px;
+padding-left: 0;
+}
+.organize main img{
+  width: 30px;
+}
+.organize main{
+  background-image: url(thumbnails/tododesktopbg.png);
+  background-size: cover;
+  background-position: center;
+}
+.org-header{
+  display: flex;
+  width: 100%;
+  max-width: 500px;
+}
+.org-header p{
+  font-size: clamp(12px, 3vw, 30px);
+}
+.home{
+  display: flex;
+flex-direction: row;
+gap: 20px;
+}
+
+.org-box{
+  display:grid;
+  justify-content: center;
+  
+}
+.org-box p{
+  font-size: clamp(12px, 3vw, 30px);
+  
+  padding: 0;
+}
+.task-total{
+
+}
+.task-txt{
+
+}
