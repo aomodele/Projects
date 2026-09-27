@@ -1,15 +1,3 @@
-// function getDateString(){
-//   const options= {weekday: "long", day: "numeric", month: "long"};
-//   return new Date().toLocaleDateString(undefined, options);
-// }
-// function getGreeting() {
-//   const hour = new Date().getHours();
-//   if (hour < 12) return "Good morning,";
-//   if (hour < 18) return "Good afternoon,";
-//   else return "Good evening,";
-// }
-// document.querySelector(".date-text ").textContent= getDateString() 
-// document.querySelector(".greetings h1").textContent=  getGreeting()
 function getDateString(){
   const options = {weekday: "long", day: "numeric", month: "long"};
   return new Date().toLocaleDateString(undefined, options);
@@ -23,20 +11,6 @@ function getGreeting(){
 }
 
 function setDateText(selector){
-  const el = document.querySelector(selector);
-  if (el) el.textContent = getDateString();
-}
-
-function setGreetingText(selector){
-  const el = document.querySelector(selector);
-  if (el) el.textContent = getGreeting();
-}
-
-// Use on any screen that has these elements:
-setGreetingText(".greetings h1");
-setDateText(".date-text");
-
-function setDateText(selector){
   document.querySelectorAll(selector).forEach(el => {
     el.textContent = getDateString();
   });
@@ -48,10 +22,12 @@ function setGreetingText(selector){
   });
 }
 
+setGreetingText(".greetings h1");
+setDateText(".date-text");
 
 function typeText(element, text, speed = 50) {
   let i = 0;
-  element.textContent ="";
+  element.textContent = "";
   function type() {
     if (i < text.length) {
       element.textContent += text.charAt(i);
@@ -67,16 +43,43 @@ typeText(document.querySelector(".note"), noteText, 100);
 const continueBtn = document.querySelector('footer button');
 const welcomeScreen = document.getElementById('welcome-screen');
 const organizeScreen = document.querySelector('.organize');
-const homeBtn = document.querySelector('.home-icon');
+const workbtn = document.querySelector('.work-box');
+const workscreen = document.querySelector('.workscreen');
+const personalbtn = document.querySelector('.personal-box');
+const personalscreen = document.querySelector('.personalscreen');
+
+function showScreen(screenToShow) {
+  [welcomeScreen, organizeScreen, workscreen, personalscreen].forEach(s => {
+    s.style.display = 'none';
+  });
+  screenToShow.style.display = screenToShow === welcomeScreen ? 'grid' : 'grid';
+}
 
 continueBtn.addEventListener('click', (e) => {
   e.preventDefault();
-  welcomeScreen.style.display = 'none';
-  organizeScreen.style.display = 'grid';
+  showScreen(organizeScreen);
 });
 
-homeBtn.addEventListener('click', (e) => {
+document.querySelectorAll('.home-btn').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    showScreen(welcomeScreen);
+  });
+});
+
+document.querySelectorAll('.backarrow').forEach(arrow => {
+  arrow.addEventListener('click', (e) => {
+    e.preventDefault();
+    showScreen(organizeScreen);
+  });
+});
+
+workbtn.addEventListener('click', (e) => {
   e.preventDefault();
-  organizeScreen.style.display = 'none';
-  welcomeScreen.style.display = 'grid';
+  showScreen(workscreen);
+});
+
+personalbtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  showScreen(personalscreen)
 });

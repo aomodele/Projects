@@ -15,26 +15,27 @@
   </head>
   <body>
     <div class="todolist-view">
-      <section class="welcome-scr" id="welcome-screen">
-        <header class="greetings">
-          <div>
-            <p class="date-text"></p>
-          <h1 class="welcome-txt"> in js.</h1>
-          </div>
+        <section class="welcome-scr" id="welcome-screen">
+          <header class="greetings">
+            <div>
+              <p class="date-text"></p>
+            <h1 class="welcome-txt"> in js.</h1>
+            </div>
 
-          <img src="thumbnails/todopiechatbg.png" alt="piechat" class="piechatimg">
-        </header>
-        <main>
-          <p class="note">
-          Somewhere to keep your days 👌, no account needed, nothing to sync, just what you type in. </p>
-        </main>
-        <footer>
-             <button type="button" >
-            Continue...
-          </button>
-        </footer>
-      </section>
-      <div class="organize">
+            <img src="thumbnails/todopiechatbg.png" alt="piechat" class="piechatimg">
+          </header>
+          <main>
+            <p class="note">
+            Somewhere to keep your days 👌, no account needed, nothing to sync, just what you type in. </p>
+          </main>
+          <footer>
+                <button type="button" class="continue-btn">
+              Continue...
+            </button>
+          </footer>
+        </section>
+    </div>
+    <div class="organize">
         <section class="organize-scr" id="organize-scr">
           <header class="org-header">
             
@@ -59,8 +60,10 @@
            </div>
           </header>
     <div class="home">
-      <button>
-      <img src="Icons/home-icon.svg" alt="home-icon" class="home-icon"> </button> <p class="task-txt">All Tasks</p> <p class="task-total">12</p>
+      <button class="home-btn">
+      <img src="Icons/home-icon.svg" alt="home-icon" class="home-icon"> </button> 
+      <p class="task-txt">All Tasks</p> 
+      <p class="task-total">12</p>
     </div>
   <main class="m-org">
    
@@ -90,8 +93,115 @@
     </div>
   </main>
         </section>
-      </div>
     </div>
+    
+    <div class="workscreen">
+  <section class="work-scr" id="work-scr">
+    <header class="work-header">
+      <img src="Icons/backarrow.png" alt="backarrow" class="backarrow">
+      <div class="work-title-box">
+        <p class="ptitle">Organize work plan</p>
+        <p class="worktitle">Work schedules</p>
+      </div>
+      <div>
+        <img src="thumbnails/todopiechatbg.png" alt="piechatpic" class="org-bg">
+        <div class="greetings" style="position: absolute; top: 2%; left: 70%;">
+          <p class="date-text"></p>
+          <h1 class="welcome-txt"></h1>
+        </div>
+      </div>
+    </header>
+
+    <div class="work-home">
+     <div class="work-home-icon">
+       <button class="home-btn">
+        <img src="Icons/homeicon.png" alt="home-icon" class="wkhome-icon">
+      </button>
+     </div> 
+      <div class="task-txt-box">
+        <p class="task-txt">Work Tasks </p>
+        <img class="work-task-icon" src="Icons/waffle-icon.svg" alt="">
+      </div>
+     <div>
+       <p class="task-total">12</p>
+     </div> 
+    </div>
+
+    <main class="m-work">
+      <div class="work-box">
+        
+        <p>Work</p>
+      </div>
+    </main>
+  </section>
+</div>
+    
+   <div class="personalscreen">
+  <section class="personal-scr" id="personal-scr">
+    <header class="personal-header">
+      <img src="Icons/backarrow.png" alt="backarrow" class="backarrow">
+      <div class="personal-title-box">
+        <p class="ptitle">Personalize work plan</p>
+        <p class="personaltitle">Personal schedules</p>
+      </div>
+      <div>
+        <img src="thumbnails/todopiechatbg.png" alt="piechatpic" class="org-bg">
+        <div class="greetings" style="position: absolute; top: 2%; left: 70%;">
+          <p class="date-text"></p>
+          <h1 class="welcome-txt"></h1>
+        </div>
+      </div>
+    </header>
+
+    <div class="personal-home">
+     <div class="personal-home-icon">
+       <button class="home-btn">
+        <img src="Icons/homeicon.png" alt="home-icon" class="perhome-icon">
+      </button>
+     </div> 
+      <div class="task-txt-box">
+        <p class="task-txt">Personal Tasks </p>
+        <img class="personal-task-icon" src="Icons/heartshape.png" alt="">
+      </div>
+     <div>
+       <p class="task-total">12</p>
+     </div> 
+    </div>
+
+    <main class="m-personal">
+      <div class="personal-box">
+
+      </div>
+    </main>
+     <footer>
+              <div class="work-box">
+      <img src="Icons/waffle-icon.svg" alt="waffle-icon"> 
+      <p>
+        Work
+      </p>
+    </div>
+    <div class="personal-box">
+      <img src="Icons/heartshape.png" alt="heartshape-icon"> 
+      <p>
+        Personal
+      </p>
+    </div>
+    <div class="errands-box">
+      <img src="Icons/cart-icon.png" alt="cart-icon"> 
+      <p>
+        Errands
+      </p>
+    </div>
+    <div class="health-box">
+      <img src="Icons/healthicon.png" alt="healthicon"> 
+      <p>
+        Health
+      </p>
+    </div>
+          </footer>
+  </section>
+</div>
+
     <script src="todolist.js"></script>
     
   </body>

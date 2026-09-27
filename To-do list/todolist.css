@@ -1,3 +1,10 @@
+/* html, body{
+  height: 100%;
+  margin: 0;
+}
+.todolist-view{
+  height: 100%;
+} */
 body{
   font-family: Roboto, Arial;
   position: relative;
@@ -58,6 +65,7 @@ body{
 
 footer {
   display: flex;
+  flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
   background: rgba(255, 228, 196, 0.32);
@@ -86,7 +94,8 @@ footer button{
 }
 .org-header{
   display: grid;
-  grid-template-columns: repeat(3fr);
+  /* grid-template-columns: repeat(3fr); */
+  grid-template-columns: repeat(2, 1fr);
   gap: 30px;
   width: 100%;
   box-sizing: border-box;
@@ -106,6 +115,7 @@ transition: 3s;
 
 .home{
   display: flex;
+    flex-wrap: nowrap;
   flex-direction: row;
   gap: 100px;
   background-color: rgb(252, 201, 72);
@@ -113,8 +123,7 @@ transition: 3s;
   justify-content: center;
 }
 .home-icon{
-  width: 50px;
-  height: 50px;
+  min-width: 50px;
   background: none;
   border: none;
 }
@@ -124,15 +133,12 @@ transition: 3s;
 }
 .org-box{
   display: flex;
+  flex-wrap: nowrap;
   flex-direction: column;
   justify-content: center;
   width: 160px;
 }
-.ptitle{
-  font-size: clamp(30px, 3vw, 50px);
-  
-  font-weight: bold;
-}
+
 .ctitle{
   font-size: clamp(12px, 2vw, 20px);
   font-weight: 500;
@@ -152,6 +158,7 @@ transition: 3s;
 }
 .organize main div{
   display: flex;
+  flex-wrap: nowrap;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -164,7 +171,6 @@ transition: 3s;
 }
 .m-org{
    display: grid;
-  flex-direction: column;
   align-items: center;
   text-align: center;  
   gap: 30px;
@@ -186,6 +192,285 @@ transition: 3s;
    font-weight: 500;
    color: rgb(0, 0, 0);
 }
-.work-box p, .personal-box p, .health-box p, .errands-box p{
+
+/* ---- work screen ---- */
+
+.workscreen{
+  display: none;
+  grid-template-rows: 1fr 650px 1fr;
+  height: 100%;
+  /* background-image: url(thumbnails/todostayorgbg.png);
+  background-size: cover;
+  background-position: center; */
+}
+/* .workscreen{
+  display: none;
+} */
+.work-scr{
+  width: 100%;
+}
+.work-header{
+  display: grid;
+  /* grid-template-columns: repeat(3fr); */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  min-height: 180px;
+  background-color: antiquewhite;
+}
+.backarrow{
+  width: 5%;
+  position: absolute;
+  top: 0%;
+}
+.work-bg{
+position: absolute;
+top: 10%;
+left: 45%;
+padding: 0%;
+width: 150px;
+transform: scale(1.5);
+transition: 3s;
+}
+
+.work-home{
+  display: flex;
+    flex-wrap: nowrap;
+  flex-direction: row;
+  gap: 20%;
+  background-color: rgb(252, 201, 72);
+  border-radius: 20px;
+  justify-content: center;
+}
+.work-home button{
+  width: 50px;
+  height: 50px;
+  background: none;
+  border: none;
+}
+
+.work-box{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+}
+
+.worktitle{
+  font-size: clamp(12px, 2vw, 20px);
+  font-weight: 500;
+  text-decoration:underline;
+}
+.ptitle, .worktitle{
+  margin-left: 60px;
+}
+.work-home-icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.wkhome-icon{
+  width: 100%;
+}
+.task-txt-box{
+  display: flex;
+  width: 30%;
+  align-items: center;
+  justify-content: center;
+}
+.work-task-icon{
+  min-width: 10%;
+  max-width: 15%;
+}
+
+.work main{
+  background-image: url(thumbnails/tododesktopbg.png);
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+}
+.work main img{
+  width: 50px;
+}
+.work main div{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 30%;
+  margin: 0 auto;
+  border-radius: 30px;
+  padding:6px ;
+
+}
+.m-work{
+   display: grid;
+  align-items: center;
+  text-align: center;  
+  gap: 30px;
+}
+.work-box{
+  background-color: rgb(255, 253, 253);
+}
+.task-txt, .task-total{
+   font-size:  clamp(20px, 2vw, 35px);
+   font-weight: 500;
+   color: rgb(0, 0, 0);
+}
+.work-box p{
   font-size:  clamp(16px, 2vw, 25px);
+}
+
+
+/* ---- personal screen ---- */
+
+.personalscreen{
+  display: none;
+  grid-template-rows: 1fr 650px 1fr;
+  height: 100%;
+  /* background-image: url(thumbnails/todostayorgbg.png);
+  background-size: cover;
+  background-position: center; */
+}
+/* .workscreen{
+  display: none;
+} */
+.personal-scr{
+  width: 100%;
+}
+.personal-header{
+  display: grid;
+  /* grid-template-columns: repeat(3fr); */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  min-height: 180px;
+  background-color: antiquewhite;
+}
+.backarrow{
+  width: 5%;
+  position: absolute;
+  top: 0%;
+}
+.personal-bg{
+position: absolute;
+top: 10%;
+left: 45%;
+padding: 0%;
+width: 150px;
+transform: scale(1.5);
+transition: 3s;
+}
+
+.personal-home{
+  display: flex;
+    flex-wrap: nowrap;
+  flex-direction: row;
+  gap: 20%;
+  background-color: rgb(252, 201, 72);
+  border-radius: 20px;
+  justify-content: center;
+}
+.personal-home button{
+  width: 50px;
+  height: 50px;
+  background: none;
+  border: none;
+}
+
+.personal-box{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+}
+.ptitle{
+  font-size: clamp(30px, 3vw, 50px);
+  text-wrap: inherit;
+  font-weight: bold;
+  overflow-wrap: break-word;
+  white-space: normal;
+  width: 280px;
+}
+.personaltitle{
+  font-size: clamp(12px, 2vw, 20px);
+  font-weight: 500;
+  text-decoration:underline;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+.ptitle, .personaltitle{
+  margin-left: 60px;
+}
+.personal-home-icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.perhome-icon{
+  width: 100%;
+}
+.task-txt-box{
+  display: flex;
+  width: 30%;
+  align-items: center;
+  justify-content: center;
+}
+.personal-task-icon{
+  min-width: 10%;
+  max-width: 15%;
+}
+
+.personal main{
+  background-image: url(thumbnails/tododesktopbg.png);
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+}
+.personal main img{
+  width: 50px;
+}
+.personal main div{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 30%;
+  margin: 0 auto;
+  border-radius: 30px;
+  padding:6px ;
+
+}
+.m-personal{
+   display: grid;
+  align-items: center;
+  text-align: center;  
+  gap: 30px;
+}
+
+.task-txt, .task-total{
+   font-size:  clamp(20px, 2vw, 35px);
+   font-weight: 500;
+   color: rgb(0, 0, 0);
+}
+.personal-box p{
+  font-size:  clamp(16px, 2vw, 25px);
+}
+footer img{
+  width: 10%;
+}
+.personal-scr .work-box, .personal-box{
+  background-color: none;
 }
