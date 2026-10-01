@@ -47,9 +47,13 @@ const workbtn = document.querySelector('.work-box');
 const workscreen = document.querySelector('.workscreen');
 const personalbtn = document.querySelector('.personal-box');
 const personalscreen = document.querySelector('.personalscreen');
+const errandbtn =document.querySelector('.errands-box');
+const errandscreen = document.querySelector('.errandscreen');
+const healthbtn = document.querySelector ('.health-box');
+const healthscreen =document.querySelector ('.healthscreen');
 
 function showScreen(screenToShow) {
-  [welcomeScreen, organizeScreen, workscreen, personalscreen].forEach(s => {
+  [welcomeScreen, organizeScreen, workscreen, personalscreen, errandscreen,healthscreen].forEach(s => {
     s.style.display = 'none';
   });
   screenToShow.style.display = screenToShow === welcomeScreen ? 'grid' : 'grid';
@@ -82,4 +86,14 @@ workbtn.addEventListener('click', (e) => {
 personalbtn.addEventListener('click', (e) => {
   e.preventDefault();
   showScreen(personalscreen)
+});
+
+errandbtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  showScreen(errandscreen)
+});
+
+healthbtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  showScreen(healthscreen)
 });

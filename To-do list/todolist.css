@@ -10,6 +10,7 @@ body{
   position: relative;
 }
 
+/*Welcome screen*/
 .welcome-txt{
   font-weight: 600;
   color: rgb(198, 151, 11);
@@ -63,7 +64,7 @@ body{
   font-style: italic;
 }
 
-footer {
+.welcome-scr footer {
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
@@ -465,12 +466,319 @@ transition: 3s;
    font-weight: 500;
    color: rgb(0, 0, 0);
 }
-.personal-box p{
-  font-size:  clamp(16px, 2vw, 25px);
-}
-footer img{
+
+.personal-scr footer img{
   width: 10%;
 }
-.personal-scr .work-box, .personal-box{
-  background-color: none;
+.personal-scr footer p{
+  font-size: clamp(16px, 2vw, 24px);
+}
+
+.personal-scr footer{
+  display: flex;
+}
+.personal-scr footer div{
+   display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  
+}
+
+/*Errand screen*/
+.errandscreen{
+  display: none;
+  grid-template-rows: 1fr 650px 1fr;
+  height: 100%;
+  /* background-image: url(thumbnails/todostayorgbg.png);
+  background-size: cover;
+  background-position: center; */
+}
+/* .workscreen{
+  display: none;
+} */
+.errands-scr{
+  width: 100%;
+}
+.errands-header{
+  display: grid;
+  /* grid-template-columns: repeat(3fr); */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  min-height: 180px;
+  background-color: antiquewhite;
+}
+.backarrow{
+  width: 5%;
+  position: absolute;
+  top: 0%;
+}
+.errands-bg{
+position: absolute;
+top: 10%;
+left: 45%;
+padding: 0%;
+width: 150px;
+transform: scale(1.5);
+transition: 3s;
+}
+
+.errands-home{
+  display: flex;
+    flex-wrap: nowrap;
+  flex-direction: row;
+  gap: 20%;
+  background-color: rgb(252, 201, 72);
+  border-radius: 20px;
+  justify-content: center;
+}
+.errands-home button{
+  width: 50px;
+  height: 50px;
+  background: none;
+  border: none;
+}
+
+.errands-box{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+}
+.etitle{
+  font-size: clamp(30px, 3vw, 50px);
+  text-wrap: inherit;
+  font-weight: bold;
+  overflow-wrap: break-word;
+  white-space: normal;
+  width: 280px;
+}
+.errandstitle{
+  font-size: clamp(12px, 2vw, 20px);
+  font-weight: 500;
+  text-decoration:underline;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+.etitle, .errandtitle{
+  margin-left: 60px;
+}
+.errands-home-icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.errhome-icon{
+  width: 100%;
+}
+.task-txt-box{
+  display: flex;
+  width: 30%;
+  align-items: center;
+  justify-content: center;
+}
+.errands-task-icon{
+  min-width: 10%;
+  max-width: 15%;
+}
+
+.errands main{
+  background-image: url(thumbnails/tododesktopbg.png);
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+}
+.errands main img{
+  width: 50px;
+}
+.errands main div{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 30%;
+  margin: 0 auto;
+  border-radius: 30px;
+  padding:6px ;
+
+}
+.m-errands{
+   display: grid;
+  align-items: center;
+  text-align: center;  
+  gap: 30px;
+}
+
+.task-txt, .task-total{
+   font-size:  clamp(20px, 2vw, 35px);
+   font-weight: 500;
+   color: rgb(0, 0, 0);
+}
+
+
+
+/*Health screen*/
+.healthscreen{
+  display: none;
+  grid-template-rows: 1fr 650px 1fr;
+  height: 100%;
+  /* background-image: url(thumbnails/todostayorgbg.png);
+  background-size: cover;
+  background-position: center; */
+}
+/* .workscreen{
+  display: none;
+} */
+.health-scr{
+  width: 100%;
+}
+.health-header{
+  display: grid;
+  /* grid-template-columns: repeat(3fr); */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative;
+  min-height: 180px;
+  background-color: antiquewhite;
+}
+.backarrow{
+  width: 5%;
+  position: absolute;
+  top: 0%;
+}
+.health-bg{
+position: absolute;
+top: 10%;
+left: 45%;
+padding: 0%;
+width: 150px;
+transform: scale(1.5);
+transition: 3s;
+}
+
+.health-home{
+  display: flex;
+    flex-wrap: nowrap;
+  flex-direction: row;
+  gap: 20%;
+  background-color: rgb(252, 201, 72);
+  border-radius: 20px;
+  justify-content: center;
+}
+.health-home button{
+  width: 50px;
+  height: 50px;
+  background: none;
+  border: none;
+}
+
+.health-box{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  width: 300px;
+}
+.htitle{
+  font-size: clamp(30px, 3vw, 50px);
+  text-wrap: inherit;
+  font-weight: bold;
+  overflow-wrap: break-word;
+  white-space: normal;
+  width: 280px;
+}
+.healthtitle{
+  font-size: clamp(12px, 2vw, 20px);
+  font-weight: 500;
+  text-decoration:underline;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+.htitle, .healthtitle{
+  margin-left: 60px;
+}
+.health-home-icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+.hlthome-icon{
+  width: 100%;
+}
+.task-txt-box{
+  display: flex;
+  width: 30%;
+  align-items: center;
+  justify-content: center;
+}
+.health-task-icon{
+  min-width: 10%;
+  max-width: 15%;
+}
+
+.health main{
+  background-image: url(thumbnails/tododesktopbg.png);
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+}
+.health main img{
+  width: 50px;
+}
+.health main div{
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 30%;
+  margin: 0 auto;
+  border-radius: 30px;
+  padding:6px ;
+
+}
+.m-health{
+   display: grid;
+  align-items: center;
+  text-align: center;  
+  gap: 30px;
+}
+
+.task-txt, .task-total{
+   font-size:  clamp(20px, 2vw, 35px);
+   font-weight: 500;
+   color: rgb(0, 0, 0);
+}
+
+/*All footers of 4 main views*/
+.work-scr footer img, .health-scr footer img, .errands-scr footer img, .personal-scr footer img{
+  width: 10%;
+}
+.work-scr footer p,.health-scr footer p, .errands-scr footer p, .personal-scr footer p{
+  font-size: clamp(16px, 2vw, 24px);
+}
+
+.work-scr footer,.health-scr footer, .errands-scr footer,.personal-scr footer{
+  display: flex;
+}
+.work-scr footer div,.health-scr footer div, .errands-scr footer div,.personal-scr footer div{
+   display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
 }
