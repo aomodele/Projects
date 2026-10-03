@@ -168,7 +168,9 @@ transition: 3s;
   margin: 0 auto;
   border-radius: 30px;
   padding:6px ;
-
+}
+.organize main div p{
+  font-size: clamp(12px, 2vw, 24px);
 }
 .m-org{
    display: grid;
@@ -177,16 +179,23 @@ transition: 3s;
   gap: 30px;
 }
 .work-box{
-  background-color: rgb(255, 253, 253);
+  inset: 0;
+  background-color: rgb(248, 248, 248);
+  inset: 0;
+   box-shadow: 4px 4px 8px #ceb12d,-4px -4px 8px #ffffff;
 }
 .personal-box{
+    inset: 0;
   background-color: rgb(125, 125, 240);
+   box-shadow: 4px 4px 8px #ceb12d,-4px -4px 8px #ffffff;
 }
 .errands-box{
   background-color: rgb(143, 235, 90);
+   box-shadow: 4px 4px 8px #ceb12d,-4px -4px 8px #ffffff;
 }
 .health-box{
   background-color: rgb(239, 63, 63);
+   box-shadow: 4px 4px 8px #ceb12d,-4px -4px 8px #ffffff;
 }
 .task-txt, .task-total{
    font-size:  clamp(20px, 2vw, 35px);
@@ -276,6 +285,10 @@ transition: 3s;
 }
 .wkhome-icon{
   width: 100%;
+    border: solid 1px goldenrod;
+  border-radius: 10%;
+  inset: 0;
+  box-shadow: inset 6px 6px 10px #f4f0e3, inset -6px -6px 10px #eadddd;
 }
 .task-txt-box{
   display: flex;
@@ -420,6 +433,10 @@ transition: 3s;
 }
 .perhome-icon{
   width: 100%;
+   border: solid 1px goldenrod;
+  border-radius: 10%;
+  inset: 0;
+  box-shadow: inset 6px 6px 10px #f4f0e3, inset -6px -6px 10px #eadddd;
 }
 .task-txt-box{
   display: flex;
@@ -566,7 +583,7 @@ transition: 3s;
   overflow-wrap: break-word;
   white-space: normal;
 }
-.etitle, .errandtitle{
+.etitle, .errandstitle{
   margin-left: 60px;
 }
 .errands-home-icon{
@@ -577,6 +594,10 @@ transition: 3s;
 }
 .errhome-icon{
   width: 100%;
+    border: solid 1px goldenrod;
+  border-radius: 10%;
+  inset: 0;
+  box-shadow: inset 6px 6px 10px #f4f0e3, inset -6px -6px 10px #eadddd;
 }
 .task-txt-box{
   display: flex;
@@ -716,6 +737,10 @@ transition: 3s;
 }
 .hlthome-icon{
   width: 100%;
+    border: solid 1px goldenrod;
+  border-radius: 10%;
+  inset: 0;
+  box-shadow: inset 6px 6px 10px #f4f0e3, inset -6px -6px 10px #eadddd;
 }
 .task-txt-box{
   display: flex;
@@ -765,14 +790,18 @@ transition: 3s;
 
 /*All footers of 4 main views*/
 .work-scr footer img, .health-scr footer img, .errands-scr footer img, .personal-scr footer img{
-  width: 10%;
+  width: 20%;
+  padding-top: 10px;
 }
 .work-scr footer p,.health-scr footer p, .errands-scr footer p, .personal-scr footer p{
   font-size: clamp(16px, 2vw, 24px);
+  margin-top: 0;
+  margin-right: 0;
 }
 
 .work-scr footer,.health-scr footer, .errands-scr footer,.personal-scr footer{
   display: flex;
+  gap: 20%;
 }
 .work-scr footer div,.health-scr footer div, .errands-scr footer div,.personal-scr footer div{
    display: flex;
@@ -781,4 +810,18 @@ transition: 3s;
   justify-content: center;
   align-items: center;
   width: 30%;
+  border: solid 1px goldenrod;
+  border-top-left-radius: 35%;
+  border-bottom-right-radius: 35%;
+  inset: 0;
+  box-shadow: inset 6px 6px 10px #e6dbb7, inset -6px -6px 10px #bebbbb;
+}
+.nav-btn.active {
+  background-color: rgb(225, 152, 43); /* pick whatever color you want */
+  border-radius: 10px;
+  color: white;
+}
+.nav-btn.active img {
+  background-color: #ceb12d;
+  filter: invert(20%) sepia(90%) saturate(6000%) hue-rotate(0deg); /* tints the icon red too, optional */
 }

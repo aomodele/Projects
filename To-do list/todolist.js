@@ -52,47 +52,66 @@ const errandscreen = document.querySelector('.errandscreen');
 const healthbtn = document.querySelector ('.health-box');
 const healthscreen =document.querySelector ('.healthscreen');
 
-function showScreen(screenToShow) {
-  [welcomeScreen, organizeScreen, workscreen, personalscreen, errandscreen,healthscreen].forEach(s => {
-    s.style.display = 'none';
-  });
-  screenToShow.style.display = screenToShow === welcomeScreen ? 'grid' : 'grid';
-}
+const screens = {
+  organizeScreen,
+  workscreen,
+  personalscreen,
+  errandscreen,
+  healthscreen
+};
 
+function showScreen(screenToShow, targetName) {
+  welcomeScreen.style.display = 'none';
+  Object.values(screens).forEach(s => { s.style.display = 'none'; });
+  screenToShow.style.display = 'grid';
+  document.querySelectorAll('.nav-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.target === targetName);
+  });
+}
+ //footer navigating buttons
+document.querySelectorAll('.nav-btn').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    showScreen(screens[btn.dataset.target]);
+  });
+});
+
+
+//navigate to organize view
 continueBtn.addEventListener('click', (e) => {
   e.preventDefault();
   showScreen(organizeScreen);
 });
-
+//navigate to home/welcome view
 document.querySelectorAll('.home-btn').forEach(btn => {
   btn.addEventListener('click', (e) => {
     e.preventDefault();
     showScreen(welcomeScreen);
   });
 });
-
+//navigate to organize view
 document.querySelectorAll('.backarrow').forEach(arrow => {
   arrow.addEventListener('click', (e) => {
     e.preventDefault();
     showScreen(organizeScreen);
   });
 });
-
+//navigate to work view
 workbtn.addEventListener('click', (e) => {
   e.preventDefault();
   showScreen(workscreen);
 });
-
+//navigate to personal view
 personalbtn.addEventListener('click', (e) => {
   e.preventDefault();
   showScreen(personalscreen)
 });
-
+//navigate to errand view
 errandbtn.addEventListener('click', (e) => {
   e.preventDefault();
   showScreen(errandscreen)
 });
-
+//navigate to health view
 healthbtn.addEventListener('click', (e) => {
   e.preventDefault();
   showScreen(healthscreen)
