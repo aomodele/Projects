@@ -43,14 +43,10 @@ typeText(document.querySelector(".note"), noteText, 100);
 const continueBtn = document.querySelector('footer button');
 const welcomeScreen = document.getElementById('welcome-screen');
 const organizeScreen = document.querySelector('.organize');
-const workbtn = document.querySelector('.work-box');
 const workscreen = document.querySelector('.workscreen');
-const personalbtn = document.querySelector('.personal-box');
 const personalscreen = document.querySelector('.personalscreen');
-const errandbtn =document.querySelector('.errands-box');
 const errandscreen = document.querySelector('.errandscreen');
-const healthbtn = document.querySelector ('.health-box');
-const healthscreen =document.querySelector ('.healthscreen');
+const healthscreen = document.querySelector('.healthscreen');
 
 const screens = {
   organizeScreen,
@@ -68,20 +64,13 @@ function showScreen(screenToShow, targetName) {
     btn.classList.toggle('active', btn.dataset.target === targetName);
   });
 }
- //footer navigating buttons
-document.querySelectorAll('.nav-btn').forEach(btn => {
-  btn.addEventListener('click', (e) => {
-    e.preventDefault();
-    showScreen(screens[btn.dataset.target]);
-  });
-});
-
 
 //navigate to organize view
 continueBtn.addEventListener('click', (e) => {
   e.preventDefault();
-  showScreen(organizeScreen);
+  showScreen(organizeScreen, 'organizeScreen');
 });
+
 //navigate to home/welcome view
 document.querySelectorAll('.home-btn').forEach(btn => {
   btn.addEventListener('click', (e) => {
@@ -89,30 +78,51 @@ document.querySelectorAll('.home-btn').forEach(btn => {
     showScreen(welcomeScreen);
   });
 });
+
 //navigate to organize view
 document.querySelectorAll('.backarrow').forEach(arrow => {
   arrow.addEventListener('click', (e) => {
     e.preventDefault();
-    showScreen(organizeScreen);
+    showScreen(organizeScreen, 'organizeScreen');
   });
 });
-//navigate to work view
-workbtn.addEventListener('click', (e) => {
-  e.preventDefault();
-  showScreen(workscreen);
+
+//navigate to work/personal/errand/health views (organize-screen boxes + every footer button)
+document.querySelectorAll('.nav-btn').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    showScreen(screens[btn.dataset.target], btn.dataset.target);
+  });
 });
-//navigate to personal view
-personalbtn.addEventListener('click', (e) => {
-  e.preventDefault();
-  showScreen(personalscreen)
-});
-//navigate to errand view
-errandbtn.addEventListener('click', (e) => {
-  e.preventDefault();
-  showScreen(errandscreen)
-});
-//navigate to health view
-healthbtn.addEventListener('click', (e) => {
-  e.preventDefault();
-  showScreen(healthscreen)
+// const themeToggle= document.querySelector('.toggle input');
+// const root = document.documentElement;
+// const savedtheme= localStorage.getItem('theme') || 'light';
+
+// root.setAttribute('data-theme', savedtheme);
+// themeToggle.addEventListener('click', () => {
+//   const current = root.getAttribute ('data-theme');
+//   const next = current === 'dark' ? 'light' : 'dark';
+//   root.setAttribute('data-theme', next);
+//   localStorage.setItem('theme', next);
+// });
+
+const themeToggles = document.querySelectorAll('.toggle input');
+const themeLabels = document.querySelectorAll('.theme-label');
+const root = document.documentElement;
+
+function applyTheme(theme){
+  root.setAttribute('data-theme', theme);
+  themeToggles.forEach(t => { t.checked = theme === 'dark'; });
+  themeLabels.forEach(label => { label.textContent = theme === 'dark' ? 'Dark' : 'Light'; });
+}
+
+const savedTheme = localStorage.getItem('theme') || 'light';
+applyTheme(savedTheme);
+
+themeToggles.forEach(toggle => {
+  toggle.addEventListener('change', () => {
+    const next = toggle.checked ? 'dark' : 'light';
+    localStorage.setItem('theme', next);
+    applyTheme(next);
+  });
 });
