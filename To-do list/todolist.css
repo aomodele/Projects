@@ -4,11 +4,13 @@
   --color-background1:#fff4d6;
   --color-text: #000000;
   --color-welcome:var(--color-background);
+  --color-welcome1:#ffffff;
   --color-text-hover:rgb(255, 255, 255);
   --color-text:#ffffff;
    --shadow-light: #e6dbb7;
   --shadow-dark: #bebbbb;
   --bg-image: url('thumbnails/5.png'); /* light theme image */
+      --icon-filter: brightness(0) invert(1);
 }
 [data-theme="dark"] {
    /* --main-background-color: #1a1a1a14; */
@@ -17,10 +19,12 @@
   --color-text: #000000;
   --color-text1:#ffffff;
    --color-welcome:var(--color-text1);
+   --color-welcome1:#fc6c26;
   --color-text-hover:rgb(255, 255, 255);
   --shadow-light: #3a3a3a;
   --shadow-dark: #0d0d0d;
   --bg-image: url('thumbnails/4.png'); /* dark theme image */
+    --icon-filter:  brightness(0) invert(1) ;
 }
 body{
   font-family: Roboto, Arial;
@@ -29,6 +33,9 @@ body{
   background-image: var(--bg-image);
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
 }
 
 /*Welcome screen*/
@@ -46,41 +53,10 @@ body{
   justify-content: center;
   align-items: center;
 }
-/*.toggle{
-  position: relative;
-  width: 90px;
-  height: 46px;
-   background-color: #000000;
+.theme-label{
+  font-size: clamp(9px, 1vw, 14px);
+  color: var(--color-text1);
 }
-.toggle input{
-  display: none;
-  background-color: #000000;
-
-}
-.track{
-  position: absolute;
-  inset: 0;
-  border-radius: 30px;
-  background: #e0e5ec;
- box-shadow: inset 6px 6px 10px #b8bec7, inset -6px -6px 10px #ffffff;
-}
-.thumb{
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  cursor: pointer;
-  background: #050910ac;
-  box-shadow: 4px 4px 8px #b8bec7,-4px -4px 8px #ffffff;
-  transition: left 0.3s ease;
-  
-}
-input:checked~.thumb{
-  left: 49px;
-  background: linear-gradient(100deg,var(--color-background1),var(--color-background));
-} */
  .toggle{
   position: relative;
   display: inline-block;
@@ -164,7 +140,7 @@ input:checked~.thumb{
 
 .date-text{
   font-size: clamp(8px, 2vw, 20px);
-  color:var(--color-text);
+  color:var(--color-welcome);
   display: inline-block;
   margin-bottom: 0;
  margin-top: 30px;
@@ -216,21 +192,24 @@ input:checked~.thumb{
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  background: rgba(248, 247, 246, 0.32);
+  background: var(--color-background)
 }
 footer button{
   height: 50px;
   width: 200px;
- background-color:var(--color-welcome);
+ background-color:var(--color-text);
   border: none;
   border-radius: 10px;
-  color:var(--color-text);
+  color:var(--color-welcome);
   font-weight: 700;
   font-size: 20px;
+  cursor: pointer;
 }
 footer button:hover{
   background-color: var(--color-background);
   color: var(--color-text1);
+  border: solid 1px;
+  border-color: var(--color-welcome1);
 }
 .welcome-txt, .date-text{
   margin-left: 20px;
@@ -262,10 +241,38 @@ footer button:hover{
 .personal-header .welcome-txt,
 .health-header .welcome-txt {
   font-weight: 600;
-  color: var(--color-text);
+  color: var(--color-welcome1);
   font-size:clamp(12px, 3vw, 48px);
-  
 }
+.org-header .date-text, 
+.work-header .date-text,
+.errands-header .date-text, 
+.personal-header .date-text,
+.health-header .date-text{
+  font-size: clamp(8px, 2vw, 20px);
+  color:var(--color-welcome1);
+  display: inline-block;
+  margin-bottom: 0;
+ margin-top: 30px;
+}
+.personal-title, .work-title, .org-title, .errand-title, .health-title{
+  margin-left: 20%;
+  font-size: clamp(30px, 3vw, 50px);
+  text-wrap: inherit;
+  font-weight: bold;
+  overflow-wrap: break-word;
+  white-space: normal;
+  width: 280px;
+  color: var(--color-welcome1);
+}
+.org-subtitle, .health-subtitle, .errand-subtitle, .personal-subtitle, .work-subtitle{
+  font-size: clamp(12px, 2vw, 20px);
+  font-weight: 500;
+  text-decoration:underline;
+   color: var(--color-welcome1);
+    margin-left: 20%;
+}
+
 .org-bg{
 position: absolute;
 top: 10%;
@@ -275,15 +282,17 @@ width: 15%;
 transform: scale(1.5);
 transition: 3s;
 }
-
-.home{
+.org-home, .work-home, .personal-home, .errands-home, .health-home{
+background-color: var(--color-welcome1);
+}
+.org-home{
   display: flex;
     flex-wrap: nowrap;
   flex-direction: row;
   gap: 100px;
-  background-color: #fc6d267c;
   border-radius: 20px;
   justify-content: center;
+  align-items: center;
   margin-bottom: 2px;
 }
 .home-icon{
@@ -298,10 +307,11 @@ transition: 3s;
   transition: 0.3s;
   box-shadow: inset 6px 6px 10px #fffffe, inset -6px -6px 10px #f8f7f7;
 }
-.home button{
+/* .org-home button{
   background: none;
   border: none;
-}
+  cursor: pointer;
+} */
 .home button:hover{
   color: var(--color-text-hover);
 }
@@ -313,14 +323,8 @@ transition: 3s;
   width: 160px;
 }
 
-.ctitle{
-  font-size: clamp(12px, 2vw, 20px);
-  font-weight: 500;
-  text-decoration:underline;
-}
-.ptitle, .ctitle{
-  margin-left: 60px;
-}
+
+
 .organize main{
   background-size: cover;
   background-position: center;
@@ -342,6 +346,7 @@ transition: 3s;
   margin: 0 auto;
   border-radius: 30px;
   padding:6px ;
+  cursor: pointer;
 }
 .organize main div p{
   font-size: clamp(12px, 2vw, 24px);
@@ -414,7 +419,7 @@ transition: 3s;
 .work-scr, .personal-scr, .errands-scr, .health-scr{
   width: 100%;
 }
-.work-header, .personal-header, .errands-header, .health-header{
+.org-header,.work-header, .personal-header, .errands-header, .health-header{
   display: grid;
   /* grid-template-columns: repeat(3fr); */
   grid-template-columns: repeat(2, 1fr);
@@ -432,6 +437,7 @@ transition: 3s;
   position: absolute;
   top: 0%;
   border-radius: 20px;
+  cursor: pointer;
 }
 .backarrow:hover{
   background-color: rgb(224, 179, 179);
@@ -451,15 +457,15 @@ transition: 3s;
     flex-wrap: nowrap;
   flex-direction: row;
   gap: 20%;
-  background-color: #fc6d267c;
   border-radius: 20px;
   justify-content: center;
 }
-.work-home button,.personal-home button, .errands-home button, .health-home button{
+.org-home button, .work-home button,.personal-home button, .errands-home button, .health-home button{
   width: 50px;
   height: 50px;
   background: none;
   border: none;
+  cursor: pointer;
 }
 .work-home button :hover,.personal-home button :hover, .errands-home button :hover, .health-home button :hover{
  transform: scale(1.1);
@@ -474,24 +480,16 @@ transition: 3s;
   width: 300px;
 }
 
+/*subtitles*/
 .worktitle, .personaltitle, .errandstitle, .healthtitle{
   font-size: clamp(12px, 2vw, 20px);
   font-weight: 500;
   text-decoration:underline;
   overflow-wrap: break-word;
   white-space: normal;
+  color: var(--color-text);
 }
-.ptitle,.htitle{
-  font-size: clamp(30px, 3vw, 50px);
-  text-wrap: inherit;
-  font-weight: bold;
-  overflow-wrap: break-word;
-  white-space: normal;
-  width: 280px;
-}
-.ptitle, .worktitle, .ptitle, .personaltitle, .etitle, .errandstitle, .htitle, .healthtitle{
-  margin-left: 60px;
-}
+
 .work-home-icon, .personal-home-icon, .errands-home-icon, .health-home-icon{
   display: flex;
   justify-content: center;
@@ -547,7 +545,7 @@ transition: 3s;
 flex: 0 0 50px; /* each row fixed at 50px tall, won't grow/shrink */  border: solid 1px whitesmoke;
 border-radius: 10px;
 }
-.m-work .Add-icon, .m-errands .Add-icon, .m-personal .Add-icon, .m-health .Add-icon{
+.m-work .add-icon, .m-errands .add-icon, .m-personal .add-icon, .m-health .add-icon{
   position: absolute;
   top: 1%;
   left:100% ;
@@ -556,8 +554,34 @@ border-radius: 10px;
   border-radius: 50px;
   filter: invert(60%) sepia(90%) saturate(6000%) hue-rotate(20deg);
 }
-.m-work .Add-icon:hover, .m-errands .Add-icon:hover, .m-personal .Add-icon:hover, .m-health .Add-icon:hover{
+.m-work .add-icon:hover, .m-errands .add-icon:hover, .m-personal .add-icon:hover, .m-health .add-icon:hover{
+   transform: scale(1.5);
+  transition: 0.3s;
   filter: invert(60%) sepia(90%) saturate(6000%) hue-rotate(90deg);
+}
+.add-task-modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.add-task-modal.open {
+  display: flex;
+}
+
+.add-task-form {
+  background: var(--main-background-color, #fff);
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 80%;
+  max-width: 300px;
 }
 
 .task-txt, .task-total{
@@ -650,7 +674,7 @@ border-radius: 10px;
   font-size: clamp(12px, 1vw, 20px);
   margin-top: 0;
   margin-right: 0;
-  color: whitesmoke;
+  color: var(--color-welcome1)
 }
 
 
@@ -676,6 +700,7 @@ border-radius: 10px;
   box-shadow: inset 6px 6px 10px #f0eeed50;
   margin-top: 10px;
   margin-bottom: 15px;
+  cursor: pointer;
 }
 
 .work-scr footer div:hover,.health-scr footer div:hover, .errands-scr footer div:hover,.personal-scr footer div:hover{
@@ -696,15 +721,18 @@ border-radius: 10px;
   width: 35%;
 }
 .nav-btn.active p{
-color: black;
+color: var(--color-text1);
 }
-.nav-btn.active img {
-  filter: invert(60%) sepia(90%) saturate(6000%) hue-rotate(150deg); /* tints the icon red too, optional */
-   mask-size: contain;
-  mask-repeat: no-repeat;
+.nav-btn.active img 
+{  filter: var(--icon-filter);
   -webkit-mask-size: contain;
+  mask-size: contain;
   -webkit-mask-repeat: no-repeat;
-}
+  mask-repeat: no-repeat;
+/* {
+  filter: invert(60%) sepia(90%) saturate(6000%) hue-rotate(150deg); /* tints the icon red too, optional */
+   
+} 
 :root {
   --icon-hue: 90deg;
 }

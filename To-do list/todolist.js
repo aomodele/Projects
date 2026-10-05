@@ -126,3 +126,30 @@ themeToggles.forEach(toggle => {
     applyTheme(next);
   });
 });
+
+const addBtns = document.querySelectorAll('.add-btn');
+const addModals = document.querySelectorAll('.add-task-modal');
+
+addBtns.forEach((btn, i) => {
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    addModals[i].classList.add('open');
+  });
+});
+
+document.querySelectorAll('.close-modal').forEach((closeBtn, i) => {
+  closeBtn.addEventListener('click', () => {
+    addModals[i].classList.remove('open');
+  });
+});
+
+document.querySelectorAll('.add-task-form').forEach((form, i) => {
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const taskName = form.querySelector('.task-name-input').value;
+    const taskDate = form.querySelector('.task-date-input').value;
+    console.log('New task:', taskName, taskDate);
+    addModals[i].classList.remove('open');
+    form.reset();
+  });
+});
