@@ -14,23 +14,129 @@
     <link rel="stylesheet" href="todolist.css">
   </head>
   <body>
-    <div class="todolist-view">
-        <section class="welcome-scr" id="welcome-screen">
-          <header class="greetings">
-            <div>
-              <p class="date-text"></p>
-            <h1 class="welcome-txt"> in js.</h1>
-            </div>
+  <div class="sign-logincontainer">
+   <section class="login-view">
+  <div class="login-cont">
+      <div class="form-container">
 
-            
-            <div class="theme">
-               <span class="theme-label"></span><p class="theme-tooltip" > Theme</p>
-                 <label class="toggle">
-      <input type="checkbox">
-      <div class="track"></div>
-      <div class="thumb"></div>
-    </label>
-            </div> 
+   <div class="form-header">
+  <p> Please enter your details </p>
+    <h1> Welcome Back </h1>
+    </div>
+  <div class="cancel-box">
+    <button class="cancel-icon">
+       <img src="Icons/cancelicon.png" alt="cancelicon" class="x-img">
+    </button>
+  </div>
+  <form class="form-box">
+    <div class="input-group">
+      <input type="email" id="email" class="input-field" placeholder=" " required>
+      <label for="email" class="floating-label">Email address</label>
+    </div> 
+    <div class="input-group">
+      <input type="password" id="password" class="input-field" placeholder=" " required>
+      <label for="password" class="floating-label">Password</label>
+    </div> 
+    <div class="checkbox-group">
+    <div class="form-col remember-me"> <input type="checkbox" id="remember-me-checkbox" class="checkbox-field"><label for="remember-me-checkbox">Remember me</label> 
+    </div>
+    <div class="form-col"> <a href="#" class="rem-link"> Forgot password?</a>
+    </div>
+    </div>
+    <div class="sigin-sigup-div">
+      <button type="submit" class="signinbtn">Sign in    
+    </button>
+    </div>
+  </form>
+  <div class="form-divider">
+    <p>Or</p>
+  </div>
+  <div class="form-bottom">
+    <div class="form-social">
+      <button class="form-btn form-btn--social"> 
+        <img src="thumbnails/google-icon.png" class="btn-icon" alt="social-icon"></button>
+        <button class="form-btn form-btn--social"> 
+          <img src="thumbnails/Appleicon-nobg.png" class="btn-icon" alt="social-icon"></button>
+          <button class="form-btn form-btn--social"> 
+            <img src="thumbnails/facebookicon.webp" class="btn-icon" alt="social-icon"></button>
+    </div>
+    <p>Don't have an account? <a href="#" class="form-link go-to-signup">Sign up</a> </p>
+  </div>
+</div>
+  </div>
+  <div class="sign-cont">
+  <div class="form-container">
+
+<div class="form-header">
+  <p> Please enter your details </p>
+    <h1> Welcome </h1>
+</div>
+    <div class="cancel-box">
+      <button class="cancel-icon"> <img src="Icons/cancelicon.png" alt="cancelicon" class="x-img">
+      </button>
+    </div>
+  <form class="form-box">
+    <div class="input-group">
+      <input type="fullname" id="fullname" class="input-field" placeholder=" " required>
+      <label for="fullname" class="floating-label">Full name</label>
+    </div>
+    <div class="input-group">
+      <input type="email" id="email" class="input-field" placeholder=" " required>
+      <label for="email" class="floating-label">Email address</label>
+    </div> 
+      
+    <div class="input-group">
+      <input type="password" id="password" class="input-field" placeholder=" " required>
+      <label for="password" class="floating-label">Password</label>
+    </div> 
+    
+    <div class="sigin-sigup-div">
+      <button type="submit" class="signupbtn">Sign up   
+    </button>
+    </div>
+  </form>
+  <div class="form-divider">
+    <p>Or</p>
+  </div>
+  <div class="form-bottom">
+    <div class="form-social">
+      <button class="form-btn form-btn--social"> 
+        <img src="thumbnails/google-icon.png" class="btn-icon" alt="social-icon"></button>
+        <button class="form-btn form-btn--social"> 
+          <img src="thumbnails/Appleicon-nobg.png" class="btn-icon" alt="social-icon"></button>
+          <button class="form-btn form-btn--social"> 
+            <img src="thumbnails/facebookicon.webp" class="btn-icon" alt="social-icon"></button>
+    </div>
+    <p>Have an account? <a href="#" class="s-form-link" id="s-form-link">Sign in</a> </p>
+  </div>
+</div>
+</div>
+ </section>
+  </div>
+  
+    <div class="todolist-view">
+  <section class="welcome-scr" id="welcome-screen">
+    <header class="greetings">
+      <div>
+        <p class="date-text"></p>
+      <h1 class="welcome-txt"> in js.</h1>
+      </div>
+   <div class="login-theme">
+      <div class="wel-login">
+     <button class="login-btn">
+        Login
+    </button>
+     </div> 
+      <div class="theme">
+          <span class="theme-label"></span><p class="theme-tooltip" > Theme</p>
+            <label class="toggle">
+<input type="checkbox">
+<div class="track"></div>
+<div class="thumb"></div>
+</label>
+      </div>
+   </div>
+   
           </header>
           <main>
             <p class="note">
@@ -68,7 +174,7 @@
   <h1 class="welcome-txt"></h1>
             </div>
            </div>
-            <div class="theme">
+            <div class="theme1">
             <span class="theme-label"></span> <p class="theme-tooltip" > Theme</p>
               <label class="toggle">
       <input type="checkbox">
@@ -130,7 +236,7 @@
           <h1 class="welcome-txt"></h1>
         </div>
       </div>
-       <div class="theme">
+       <div class="theme1">
             <span class="theme-label"></span> <p class="theme-tooltip" > Theme</p>
               <label class="toggle">
       <input type="checkbox">
@@ -155,23 +261,22 @@
      </div> 
     </div>
 
-    <main class="m-work">
-      <div class="div1"></div>
-      <div class="div2"></div>
-      <div class="div3"></div>
-      <div class="div4"></div>
-      <div class="div5"></div>
+    <main class="m-work" data-category="work">
+      <div class="task-list"></div>
+      <!--div$*5 shortcut for 5 div-->
     
 
        <button class="add-btn">
            <img src="Icons/Add_icon.png" alt="Addicon" class="add-icon">
        </button> 
-      <div class="add-task-modal" id="add-task-modal">
+      <div class="add-task-modal" >
   <form class="add-task-form">
-    <input type="text" placeholder="Task name" class="task-name-input" required>
+    <textarea placeholder="Task name" class="task-name-input" required></textarea>
     <input type="date" class="task-date-input" required>
-    <button type="submit">Add Task</button>
+    <div class="submit-cancel">
+       <button type="submit" class="task-submit-btn">Add Task</button>
     <button type="button" class="close-modal">Cancel</button>
+    </div> 
   </form>
   </div>
     </main>
@@ -211,7 +316,7 @@
           <h1 class="welcome-txt"></h1>
         </div>
       </div>
-       <div class="theme">
+       <div class="theme1">
               <span class="theme-label"></span> <p class="theme-tooltip" > Theme</p>
                <label class="toggle">
       <input type="checkbox">
@@ -236,23 +341,21 @@
      </div> 
     </div>
 
-     <main class="m-personal">
-      <div class="div1"></div>
-      <div class="div2"></div>
-      <div class="div3"></div>
-      <div class="div4"></div>
-      <div class="div5"></div>
+     <main class="m-personal" data-category="personal">
+      <div class="task-list"></div>
     
 
       <button class="add-btn">
          <img src="Icons/Add_icon.png" alt="Addicon" class="add-icon">
       </button>
-      <div class="add-task-modal" id="add-task-modal">
+      <div class="add-task-modal" >
   <form class="add-task-form">
-    <input type="text" placeholder="Task name" class="task-name-input" required>
+    <textarea placeholder="Task name" class="task-name-input" required></textarea>
     <input type="date" class="task-date-input" required>
-    <button type="submit">Add Task</button>
+   <div class="submit-cancel">
+     <button type="submit" class="task-submit-btn">Add Task</button>
     <button type="button" class="close-modal">Cancel</button>
+   </div> 
   </form>
 </div>
     </main>
@@ -292,7 +395,7 @@
           <h1 class="welcome-txt"></h1>
         </div>
       </div>
-       <div class="theme">
+       <div class="theme1">
             <span class="theme-label"></span> 
             <p class="theme-tooltip" > Theme</p>
               <label class="toggle">
@@ -319,23 +422,21 @@
      </div> 
     </div>
 
-    <main class="m-errands">
-      <div class="div1"></div>
-      <div class="div2"></div>
-      <div class="div3"></div>
-      <div class="div4"></div>
-      <div class="div5"></div>
+    <main class="m-errands" data-category="errands">
+      <div class="task-list"></div>
     
 
         <button class="add-btn">
          <img src="Icons/Add_icon.png" alt="Addicon" class="add-icon">
       </button>
-      <div class="add-task-modal" id="add-task-modal">
+      <div class="add-task-modal">
   <form class="add-task-form">
-    <input type="text" placeholder="Task name" class="task-name-input" required>
+    <textarea placeholder="Task name" class="task-name-input" required></textarea>
     <input type="date" class="task-date-input" required>
-    <button type="submit">Add Task</button>
+    <div class="submit-cancel">
+     <button type="submit" class="task-submit-btn">Add Task</button>
     <button type="button" class="close-modal">Cancel</button>
+   </div> 
   </form>
   </div>
     </main>
@@ -375,7 +476,7 @@
           <h1 class="welcome-txt"></h1>
         </div>
       </div>
-       <div class="theme">
+       <div class="theme1">
             <span class="theme-label"></span>
              <p class="theme-tooltip" > Theme</p>
               <label class="toggle">
@@ -402,22 +503,21 @@
      </div> 
     </div>
 
-    <main class="m-health">
-      <div class="div1"></div>
-      <div class="div2"></div>
-      <div class="div3"></div>
-      <div class="div4"></div>
-      <div class="div5"></div>
+    <main class="m-health" data-category="health">
+      <div class="task-list"></div>
+      
 
        <button class="add-btn">
          <img src="Icons/Add_icon.png" alt="Addicon" class="add-icon">
       </button>
-      <div class="add-task-modal" id="add-task-modal">
+      <div class="add-task-modal">
   <form class="add-task-form">
-    <input type="text" placeholder="Task name" class="task-name-input" required>
+   <textarea placeholder="Task name" class="task-name-input" required></textarea>
     <input type="date" class="task-date-input" required>
-    <button type="submit">Add Task</button>
+    <div class="submit-cancel">
+     <button type="submit" class="task-submit-btn">Add Task</button>
     <button type="button" class="close-modal">Cancel</button>
+   </div> 
   </form>
   </div>
     </main>
@@ -441,7 +541,25 @@
 </footer>
   </section>
 </div>
-    <script src="todolist.js"></script>
-    
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+  import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyC4FrCGa0APXs0MEtURNyA2tioay518WD8",
+    authDomain: "planning-with-ai-d3fcc.firebaseapp.com",
+    projectId: "planning-with-ai-d3fcc",
+    storageBucket: "planning-with-ai-d3fcc.firebasestorage.app",
+    messagingSenderId: "246269463666",
+    appId: "1:246269463666:web:e4c7b22df870d6722e46eb"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  window.auth = getAuth(app);
+  window.db = getFirestore(app);
+</script>
+<script src="todolist.js" type="module"></script>
+
   </body>
 </html>
