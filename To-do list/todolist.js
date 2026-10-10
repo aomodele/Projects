@@ -1,22 +1,36 @@
-function getDateString(){
-  const options = {weekday: "long", day: "numeric", month: "long"};
+/* =====================================================
+   todolist.js  -  app logic (no Firebase code in here)
+   Sections:
+   1. Date and greeting
+   2. Typing effect on the welcome note
+   3. Screen navigation
+   4. Light / dark theme
+   5. Tasks (saved in localStorage for now)
+   6. Login / sign up overlay (open, switch, close)
+   ===================================================== */
+
+
+/* ---------- 1. Date and greeting ---------- */
+
+function getDateString() {
+  const options = { weekday: "long", day: "numeric", month: "long" };
   return new Date().toLocaleDateString(undefined, options);
 }
 
-function getGreeting(){
+function getGreeting() {
   const hour = new Date().getHours();
   if (hour < 12) return "Good morning,";
   if (hour < 18) return "Good afternoon,";
   return "Good evening,";
 }
 
-function setDateText(selector){
+function setDateText(selector) {
   document.querySelectorAll(selector).forEach(el => {
     el.textContent = getDateString();
   });
 }
 
-function setGreetingText(selector){
+function setGreetingText(selector) {
   document.querySelectorAll(selector).forEach(el => {
     el.textContent = getGreeting();
   });
@@ -24,6 +38,9 @@ function setGreetingText(selector){
 
 setGreetingText(".greetings h1");
 setDateText(".date-text");
+
+
+/* ---------- 2. Typing effect on the welcome note ---------- */
 
 function typeText(element, text, speed = 50) {
   let i = 0;
@@ -37,10 +54,14 @@ function typeText(element, text, speed = 50) {
   }
   type();
 }
-const noteText = "Somewhere to keep your days 👌, no account needed, nothing to sync, just what you type in."
+
+const noteText = "Somewhere to keep your days 👌, no account needed, nothing to sync, just what you type in.";
 typeText(document.querySelector(".note"), noteText, 100);
 
-const continueBtn = document.querySelector('footer button');
+
+/* ---------- 3. Screen navigation ---------- */
+
+const continueBtn = document.querySelector('.continue-btn');
 const welcomeScreen = document.getElementById('welcome-screen');
 const organizeScreen = document.querySelector('.organize');
 const workscreen = document.querySelector('.workscreen');
@@ -48,6 +69,7 @@ const personalscreen = document.querySelector('.personalscreen');
 const errandscreen = document.querySelector('.errandscreen');
 const healthscreen = document.querySelector('.healthscreen');
 
+// Every screen except welcome, so showScreen can look one up by name
 const screens = {
   organizeScreen,
   workscreen,
@@ -56,22 +78,24 @@ const screens = {
   healthscreen
 };
 
+// Show one screen, hide the rest, and highlight the matching nav buttons
 function showScreen(screenToShow, targetName) {
   welcomeScreen.style.display = 'none';
   Object.values(screens).forEach(s => { s.style.display = 'none'; });
   screenToShow.style.display = 'grid';
+
   document.querySelectorAll('.nav-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.target === targetName);
   });
 }
 
-//navigate to organize view
+// Continue button: welcome -> organize
 continueBtn.addEventListener('click', (e) => {
   e.preventDefault();
   showScreen(organizeScreen, 'organizeScreen');
 });
 
-//navigate to home/welcome view
+// Home buttons: any screen -> welcome
 document.querySelectorAll('.home-btn').forEach(btn => {
   btn.addEventListener('click', (e) => {
     e.preventDefault();
@@ -79,7 +103,7 @@ document.querySelectorAll('.home-btn').forEach(btn => {
   });
 });
 
-//navigate to organize view
+// Back arrows: any screen -> organize
 document.querySelectorAll('.backarrow').forEach(arrow => {
   arrow.addEventListener('click', (e) => {
     e.preventDefault();
@@ -87,7 +111,7 @@ document.querySelectorAll('.backarrow').forEach(arrow => {
   });
 });
 
-//navigate to work/personal/errand/health views (organize-screen boxes + every footer button)
+// Organize boxes and footer buttons: go to the screen named in data-target
 document.querySelectorAll('.nav-btn').forEach(btn => {
   btn.addEventListener('click', (e) => {
     e.preventDefault();
@@ -95,18 +119,21 @@ document.querySelectorAll('.nav-btn').forEach(btn => {
   });
 });
 
+
+/* ---------- 4. Light / dark theme ---------- */
+
 const themeToggles = document.querySelectorAll('.toggle input');
 const themeLabels = document.querySelectorAll('.theme-label');
 const root = document.documentElement;
 
-function applyTheme(theme){
+// Set the theme and keep every toggle and label in sync
+function applyTheme(theme) {
   root.setAttribute('data-theme', theme);
   themeToggles.forEach(t => { t.checked = theme === 'dark'; });
   themeLabels.forEach(label => { label.textContent = theme === 'dark' ? 'Dark' : 'Light'; });
 }
 
-const savedTheme = localStorage.getItem('theme') || 'light';
-applyTheme(savedTheme);
+applyTheme(localStorage.getItem('theme') || 'light');
 
 themeToggles.forEach(toggle => {
   toggle.addEventListener('change', () => {
@@ -116,73 +143,149 @@ themeToggles.forEach(toggle => {
   });
 });
 
-// Load saved tasks from localStorage, or start with an empty array if none exist yet
+
+/* ---------- 5. Tasks (localStorage for now) ---------- */
+
+// Load saved tasks, or start with an empty list
+/* ---------- 5. Tasks (localStorage for now) ---------- */
+
+const addBtns = document.querySelectorAll('.add-btn');
+const addModals = document.querySelectorAll('.add-task-modal');
+
+// Load saved tasks, or start with an empty list
 let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
-// Save the current tasks array to localStorage (converted to a string, since localStorage only stores strings)
-function saveTasks(){
+// Which task is being edited, or null when adding a new one
+let editingId = null;
+
+function newId() {
+  return Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+}
+
+function saveTasks() {
   localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-// Display tasks in their correct screen's list, rebuilding one row per task
-function renderTasks(){
+// Give tasks saved before ids existed an id, then save once
+let needsSave = false;
+tasks.forEach(t => {
+  if (!t.id) {
+    t.id = newId();
+    needsSave = true;
+  }
+});
+if (needsSave) saveTasks();
+
+// Redraw every screen's list, one card per task
+function renderTasks() {
   document.querySelectorAll('main[data-category]').forEach(main => {
     const category = main.dataset.category;
     const list = main.querySelector('.task-list');
     const categoryTasks = tasks.filter(t => t.category === category);
 
-    list.innerHTML = ''; // clear old content before redrawing
+    list.innerHTML = '';
 
     categoryTasks.forEach(task => {
       const row = document.createElement('div');
       row.className = 'task-row';
-      row.textContent = `${task.name} — ${task.date}`;
+      row.innerHTML = `
+        <div class="task-info">
+          <p class="task-name"></p>
+          <p class="task-meta"></p>
+        </div>
+        <button type="button" class="task-arrow-btn" aria-label="Edit task">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none"
+               stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 6 15 12 9 18"></polyline>
+          </svg>
+        </button>
+      `;
+      row.querySelector('.task-name').textContent = task.name;
+      row.querySelector('.task-meta').textContent = task.date;
+      row.querySelector('.task-arrow-btn').addEventListener('click', () => {
+        openEdit(main, task);
+      });
+
       list.appendChild(row);
     });
   });
 }
 
-const addBtns = document.querySelectorAll('.add-btn');       // all 4 add buttons
-const addModals = document.querySelectorAll('.add-task-modal'); // all 4 modals, in matching order
+// Open the modal empty, ready to add
+function openAdd(modal) {
+  editingId = null;
+  modal.querySelector('.task-submit-btn').textContent = 'Add Task';
+  modal.classList.add('open');
+}
 
-// Clicking an add button opens its matching modal (same position in the page)
+// Open the modal filled with an existing task
+function openEdit(main, task) {
+  editingId = task.id;
+  const modal = main.querySelector('.add-task-modal');
+  modal.querySelector('.task-name-input').value = task.name;
+  modal.querySelector('.task-date-input').value = task.date;
+  modal.querySelector('.task-submit-btn').textContent = 'Save changes';
+  modal.classList.add('open');
+}
+
+// Close the modal and clear anything typed in it
+function closeModal(modal) {
+  editingId = null;
+  modal.querySelector('form').reset();
+  modal.classList.remove('open');
+}
+
+// Add buttons open their own modal (same position in the page)
 addBtns.forEach((btn, i) => {
   btn.addEventListener('click', (e) => {
     e.preventDefault();
-    addModals[i].classList.add('open');
+    openAdd(addModals[i]);
   });
 });
 
-// Clicking a modal's "Cancel" button closes that same modal
+// Cancel buttons close their own modal
 document.querySelectorAll('.close-modal').forEach((closeBtn, i) => {
   closeBtn.addEventListener('click', () => {
-    addModals[i].classList.remove('open');
+    closeModal(addModals[i]);
   });
 });
 
-// Handle submitting any of the 4 forms
-document.querySelectorAll('.add-task-form').forEach((form) => {
+// Submit adds a new task, or saves changes to the one being edited
+document.querySelectorAll('.add-task-form').forEach(form => {
   form.addEventListener('submit', (e) => {
-    e.preventDefault(); // stop the page from reloading on submit
+    e.preventDefault();
 
-    const main = form.closest('main[data-category]'); // find which screen this form belongs to
-    const category = main.dataset.category;
-    const name = form.querySelector('.task-name-input').value;
+    const modal = form.closest('.add-task-modal');
+    const main = form.closest('main[data-category]');
+    const name = form.querySelector('.task-name-input').value.trim();
     const date = form.querySelector('.task-date-input').value;
 
-    tasks.push({ name, date, category }); // add the new task to the shared array
-    saveTasks();   // persist it to localStorage
-    renderTasks(); // update what's shown on screen immediately
+    if (!name) return; // ignore names that are only spaces
 
-    form.closest('.add-task-modal').classList.remove('open'); // close the modal
-    form.reset(); // clear the form fields for next time
+    if (editingId !== null) {
+      const task = tasks.find(t => t.id === editingId);
+      if (task) {
+        task.name = name;
+        task.date = date;
+      }
+    } else {
+      tasks.push({ id: newId(), name, date, category: main.dataset.category });
+    }
+
+    saveTasks();
+    renderTasks();
+    closeModal(modal);
   });
 });
 
-// Show any previously saved tasks as soon as the page loads
+// Show saved tasks as soon as the page loads
 renderTasks();
 
-const cancelclick =document.querySelector('.cancel-icon');
+
+/* ---------- 6. Login / sign up overlay ---------- */
+/* Only opens, switches and closes the overlay.
+   The actual sign in / sign up is handled in auth.js. */
+
 const signLoginContainer = document.querySelector('.sign-logincontainer');
 const loginBtn = document.querySelector('.login-btn');
 const loginFormBox = document.querySelector('.login-cont .form-container');
@@ -190,101 +293,33 @@ const signupFormBox = document.querySelector('.sign-cont .form-container');
 const goToSignup = document.querySelector('.go-to-signup');
 const goToSignin = document.querySelector('#s-form-link');
 
-// Open the login/signup screen when "Login" is clicked on the welcome screen
+// Welcome "Login" button: open the overlay on the login form
 loginBtn.addEventListener('click', (e) => {
   e.preventDefault();
   signLoginContainer.style.display = 'flex';
   loginFormBox.style.display = 'grid';
   signupFormBox.style.display = 'none';
+  document.querySelectorAll('.form-box').forEach(f => f.reset());
 });
 
-// Switch from login form to signup form
+// "Sign up" link: login form -> sign up form
 goToSignup.addEventListener('click', (e) => {
   e.preventDefault();
   loginFormBox.style.display = 'none';
   signupFormBox.style.display = 'grid';
 });
 
-// Switch from signup form back to login form
+// "Sign in" link: sign up form -> login form
 goToSignin.addEventListener('click', (e) => {
   e.preventDefault();
   signupFormBox.style.display = 'none';
   loginFormBox.style.display = 'grid';
 });
 
+// Cancel icons: close the whole overlay
 document.querySelectorAll('.cancel-icon').forEach(btn => {
   btn.addEventListener('click', (e) => {
     e.preventDefault();
     signLoginContainer.style.display = 'none';
   });
 });
- // --- Social login buttons (test only) ---
-  // Select all buttons that have the "form-btn--social" class (Google, Apple, Facebook)
-  const socialButtons = document.querySelectorAll(".form-btn--social");
-
-  // Loop through each button found and attach a click listener to it
-  socialButtons.forEach((button) => {
-    button.addEventListener("click", (e) => {
-      e.preventDefault();
-      // Stops the button from submitting the form or reloading the page (default button behavior inside a <form>)
-
-      // Find the <img> inside this specific button, so we know which one was clicked
-      const icon = button.querySelector("img");
-
-      // Read the icon's file name (src) to figure out which provider it is
-      const iconSrc = icon.getAttribute("src").toLowerCase();
-
-      let provider = "Unknown";
-
-      if (iconSrc.includes("google")) {
-        provider = "Google";
-      } else if (iconSrc.includes("apple")) {
-        provider = "Apple";
-      } else if (iconSrc.includes("facebook")) {
-        provider = "Facebook";
-      }
-
-      // For now, just confirm the click is working, replace later with real sign-in logic
-      console.log(`${provider} button clicked`);
-      alert(`Thank you for testing the ${provider} button! (This is just a test, no real login yet.) #lizdev`);
-    });
-  });
-
-
-
-// import { createUserWithEmailAndPassword, signInWithEmailAndPassword } 
-//   from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-
-// // Sign in (login-view)
-// const loginForm = document.querySelector('.login-view .form-box');
-// loginForm.addEventListener('submit', (e) => {
-//   e.preventDefault();
-//   const email = loginForm.querySelector('input[type="email"]').value;
-//   const password = loginForm.querySelector('input[type="password"]').value;
-
-//   signInWithEmailAndPassword(auth, email, password)
-//     .then(() => {
-//       console.log('Logged in!');
-//       // next: navigate to the to-do app's welcome/organize screen
-//     })
-//     .catch(err => {
-//       alert(err.message); // swap for a styled error message later
-//     });
-// });
-
-// // Sign up (signin-view)
-// const signupForm = document.querySelector('.signin-view .form-box');
-// signupForm.addEventListener('submit', (e) => {
-//   e.preventDefault();
-//   const email = signupForm.querySelector('input[type="email"]').value;
-//   const password = signupForm.querySelector('input[type="password"]').value;
-
-//   createUserWithEmailAndPassword(auth, email, password)
-//     .then(() => {
-//       console.log('Account created!');
-//       // next: navigate to the to-do app's welcome/organize screen
-//     })
-//     .catch(err => {
-//       alert(err.message);
-//     });
-// });

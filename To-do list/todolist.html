@@ -116,13 +116,15 @@
   
     <div class="todolist-view">
   <section class="welcome-scr" id="welcome-screen">
-    <header class="greetings">
-      <div>
+    <header class="landingpage-header">
+      <div class="greetings">
         <p class="date-text"></p>
-      <h1 class="welcome-txt"> in js.</h1>
+      <h1 class="welcome-txt"></h1>
       </div>
-   <div class="login-theme">
-      <div class="wel-login">
+   
+      <div class="login-theme">
+        <div class="login-theme-cont">
+            <div class="wel-login">
      <button class="login-btn">
         Login
     </button>
@@ -130,10 +132,17 @@
       <div class="theme">
           <span class="theme-label"></span><p class="theme-tooltip" > Theme</p>
             <label class="toggle">
-<input type="checkbox">
-<div class="track"></div>
-<div class="thumb"></div>
-</label>
+      <input type="checkbox">
+      <div class="track"></div>
+      <div class="thumb"></div>
+      </label>
+      </div>
+        </div>
+     
+      <div class="login-user">
+         <img src="" alt="" class="user-image">
+          <span class="user-tooltip"></span>
+         <p class="username"></p>
       </div>
    </div>
    
@@ -153,27 +162,49 @@
     </div>
     <div class="organize">
         <section class="organize-scr" id="organize-scr">
-          <header class="org-header">
-            
+           <header class="work-header">
+      <div class="work-title-box">
+        <p class="work-title">Organize</p>
+        <p class="work-subtitle">Your tasks</p>
+      </div>
+      <div>
+        <img src="thumbnails/todopiechatbg.png" alt="piechatpic" class="org-bg">
+        <div class="greetings" style="position: absolute; top: 2%; left: 70%;">
+          <p class="date-text"></p>
+          <h1 class="welcome-txt"></h1>
+            <div class="login-user">
+         <img src="" alt="" class="user-image">
+          <span class="user-tooltip"></span>
+         <p class="username"></p>
+      </div>
+        </div>
+      </div>
+      <div class="theme1">
+            <span class="theme-label"></span> <p class="theme-tooltip" > Theme</p>
+    <label class="toggle">
+      <input type="checkbox">
+      <div class="track"></div>
+      <div class="thumb"></div>
+    </label>
+   </div>  
+    </header>
+      <!-- <header class="org-header">
+       
         <div class="org-box">
-            
               <p class="org-title">
               ORGANIZE
             </p>
             <p class="org-subtitle">
               Your Lists
             </p>
-      </div> 
            <div>
+       </div> 
             <img src="thumbnails/todopiechatbg.png" alt="piechatpic" class="org-bg">
-             <div>
-            <div class="greetings" style="position: absolute;
-            top: 2%;
-            left: 70%;">
-               <p class="date-text"></p>
-  <h1 class="welcome-txt"></h1>
-            </div>
            </div>
+            <div class="greetings">
+               <p class="date-text"></p>
+               <h1 class="welcome-txt"></h1>
+            </div>
             <div class="theme1">
             <span class="theme-label"></span> <p class="theme-tooltip" > Theme</p>
               <label class="toggle">
@@ -181,10 +212,9 @@
       <div class="track"></div>
       <div class="thumb"></div>
     </label>
-      
-
-            </div> 
-          </header>
+ 
+   </div> 
+ </header> -->
     <div class="org-home">
       <button class="home-btn">
       <img src="Icons/homeicon.png" alt="home-icon" class="home-icon"> </button> 
@@ -218,7 +248,17 @@
       </p>
     </div>
   </main>
-        </section>
+  <!-- <footer>
+     
+         <div class="login-user">
+          <p class="profile-title">Profile</p>
+         <img src="" alt="" class="user-image">
+          <span class="user-tooltip"></span>
+         <p class="username"></p>
+      </div>
+      
+  </footer> -->
+</section>
     </div>
     
     <div class="workscreen">
@@ -234,6 +274,11 @@
         <div class="greetings" style="position: absolute; top: 2%; left: 70%;">
           <p class="date-text"></p>
           <h1 class="welcome-txt"></h1>
+           <div class="login-user">
+         <img src="" alt="" class="user-image">
+          <span class="user-tooltip"></span>
+         <p class="username"></p>
+      </div>
         </div>
       </div>
        <div class="theme1">
@@ -243,7 +288,7 @@
       <div class="track"></div>
       <div class="thumb"></div>
     </label>
-            </div> 
+   </div> 
     </header>
 
     <div class="work-home">
@@ -262,8 +307,11 @@
     </div>
 
     <main class="m-work" data-category="work">
-      <div class="task-list"></div>
-      <!--div$*5 shortcut for 5 div-->
+      <!-- <div class="task-list"></div> -->
+      <div
+      ><div class="task-list"></div>
+    </div>
+      
     
 
        <button class="add-btn">
@@ -314,6 +362,11 @@
         <div class="greetings" style="position: absolute; top: 2%; left: 70%;">
           <p class="date-text"></p>
           <h1 class="welcome-txt"></h1>
+            <div class="login-user">
+         <img src="" alt="" class="user-image">
+          <span class="user-tooltip"></span>
+         <p class="username"></p>
+      </div>
         </div>
       </div>
        <div class="theme1">
@@ -393,6 +446,11 @@
         <div class="greetings" style="position: absolute; top: 2%; left: 70%;">
           <p class="date-text"></p>
           <h1 class="welcome-txt"></h1>
+            <div class="login-user">
+         <img src="" alt="" class="user-image">
+          <span class="user-tooltip"></span>
+         <p class="username"></p>
+      </div>
         </div>
       </div>
        <div class="theme1">
@@ -474,6 +532,11 @@
         <div class="greetings" style="position: absolute; top: 2%; left: 70%;">
           <p class="date-text"></p>
           <h1 class="welcome-txt"></h1>
+            <div class="login-user">
+         <img src="" alt="" class="user-image">
+          <span class="user-tooltip"></span>
+         <p class="username"></p>
+      </div>
         </div>
       </div>
        <div class="theme1">
@@ -541,25 +604,7 @@
 </footer>
   </section>
 </div>
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-  import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
-  import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-
-  const firebaseConfig = {
-    apiKey: "AIzaSyC4FrCGa0APXs0MEtURNyA2tioay518WD8",
-    authDomain: "planning-with-ai-d3fcc.firebaseapp.com",
-    projectId: "planning-with-ai-d3fcc",
-    storageBucket: "planning-with-ai-d3fcc.firebasestorage.app",
-    messagingSenderId: "246269463666",
-    appId: "1:246269463666:web:e4c7b22df870d6722e46eb"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  window.auth = getAuth(app);
-  window.db = getFirestore(app);
-</script>
-<script src="todolist.js" type="module"></script>
-
-  </body>
-</html>
+<!-- Firebase (login, sign up, who is signed in) -->
+  <script type="module" src="auth.js"></script>
+  <!-- App logic (screens, theme, tasks) -->
+  <script type="module" src="todolist.js"></script>
